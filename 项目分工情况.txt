@@ -1,0 +1,11 @@
+﻿龙菊：首页内容,头部，底部，侧边栏及公共样式的封装。
+孟凡盛：护肤、彩妆、香水、菁纯奢宠。
+刘学：畅销榜单、官网购物理由 立即购买（小弹框）。
+庭国继：商品详情、购物车（https://www.lancome.com.cn/item/LAN00033-001)。
+修梓祚：会员中心（登录注册）,积分页（https://www.lancome.com.cn/shoppingcart）。
+陈糠杰：用户中心（登录注册）、结算页。
+
+
+官网：https://www.lancome.com.cn/
+
+

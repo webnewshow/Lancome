@@ -1,0 +1,191 @@
+// 底部样式
+.skin-sc-footer {
+    width: 100%;
+    padding-top: 35px;
+    border-top: 1px solid #dadada;
+    overflow: hidden;
+    .skin-sc-viation {
+        position: relative;
+        padding: 0 20px 40px;
+        .skin-viation-items {
+            width: 20%;
+            position: relative;
+            p {
+                font-size: 12px;
+                color: #aaa;
+                margin-bottom: 10px;
+                a {
+                    color: #aaa;
+                    text-decoration: underline;
+                }
+            }
+            .skin-viaItem-tit {
+                position: relative;
+                color: #000;
+                margin-bottom: 15px;
+                padding-left: 20px;
+                i {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+                .skin-icon-lock {
+                    top: auto;
+                    bottom: 0;
+                    background-position: -369px 0;
+                    width: 12px;
+                    height: 16px;
+                }
+                .skin-icon-phone {
+                    top: auto;
+                    bottom: 0;
+                    background-position: 0 -346px;
+                    width: 13px;
+                    height: 15px;
+                }
+                .skin-icon-gift {
+                    background-position: -201px -324px;
+                    width: 13px;
+                    height: 14px;
+                }
+                .skin-icon-clock {
+                    top: auto;
+                    bottom: 0;
+                    background-position: -327px -270px;
+                    width: 15px;
+                    height: 16px;
+                }
+                .skin-icon-chat {
+                    background-position: -349px -167px;
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+            .skin-viaItem-payWay {
+                margin-top: 15px;
+                i {
+                    float: left;
+                    margin-right: 10px;
+                }
+                .skin-icon-alipay {
+                    background-position: -142px -154px;
+                    width: 30px;
+                    height: 21px;
+                }
+                .skin-icon-wepay {
+                    background-position: -99px -241px;
+                    width: 30px;
+                    height: 21px;
+                }
+                .skin-icon-unionpay {
+                    width: 30px;
+                    height: 21px;
+                    background-position: -135px -241px;
+                }
+            }
+        }
+        .skin-viation-items:last-child:before {
+            content: "";
+            position: absolute;
+            height: 115%;
+            width: 1px;
+            background: #dadada;
+            left: -60px;
+            top: -35px;
+        }
+    }
+    .skin-sc-viation:before {
+        content: "";
+        position: absolute;
+        height: 1px;
+        width: 200%;
+        background: #dadada;
+        left: -50%;
+        bottom: 0;
+    }
+    .skin-footer-buttomer {
+        text-align: center;
+        padding: 30px 40px;
+        .skin-footer-statement {
+            font-size: 0;
+            margin-bottom: 30px;
+            li {
+                display: inline-block;
+                margin: 0 10px;
+                span {
+                    font-size: 12px;
+                    color: #000;
+                }
+                a {
+                    display: inline-block;
+                }
+                a:hover {
+                    text-decoration: underline;
+                }
+            }
+            .skin-icon-zggs {
+                background-position: -95px -301px;
+                width: 17px;
+                height: 17px;
+                margin-right: 7px;
+                position: relative;
+                top: 4px;
+            }
+            .skin-icon-hgyab {
+                background-position: -24px -273px;
+                width: 18px;
+                height: 20px;
+                margin-right: 7px;
+                position: relative;
+                top: 4px;
+            }
+        }
+    }
+    .skin-footer-tiaokuan {
+        ul {
+            font-size: 0;
+            margin-bottom: 12px;
+            li {
+                display: inline-block;
+                vertical-align: middle;
+                padding: 0 6px;
+                position: relative;
+                a {
+                    font-size: 12px;
+                    color: #999;
+                }
+                a:hover {
+                    text-decoration: underline;
+                }
+            }
+            li:first-child {
+                padding-left: 0;
+            }
+            li:last-child {
+                padding-right: 0;
+            }
+            li:first-child:after {
+                content: '';
+                width: 1px;
+                height: 12px;
+                background: #ccc;
+                position: absolute;
+                top: 3px;
+                right: 0;
+            }
+            li:last-child:before {
+                content: '';
+                width: 1px;
+                height: 12px;
+                background: #ccc;
+                position: absolute;
+                top: 3px;
+                left: 0;
+            }
+        }
+        p {
+            font-size: 12px;
+            color: #999;
+        }
+    }
+}

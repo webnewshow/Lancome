@@ -1,0 +1,50 @@
+.skin-cards-content {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    .skin-backhome {
+        text-align: left;
+        padding: 3% 0 2%;
+        a {
+            color: #727171;
+            text-decoration: none;
+            font-size: 18px;
+        }
+    }
+    .skin-product-imgbox {
+        width: 100%;
+        max-width: 640px;
+        margin: 0 auto;
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+}
+@media screen and (min-width: 1200px) {
+    .skin-cards-content { 
+        width: 1170px;
+    }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .skin-cards-content { 
+        width: 970px;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .skin-cards-content { 
+        width: 750px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .skin-cards-content { 
+        width: 100%;
+        .skin-backhome {
+            a {
+                font-size: 14px;
+            }
+        }
+    }
+}

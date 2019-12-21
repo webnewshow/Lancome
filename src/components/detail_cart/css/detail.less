@@ -1,0 +1,689 @@
+// 详情样式
+body .el-dropdown-menu {
+    left: 448px !important;
+    width: 224px;
+}
+// 悬浮导航条上
+.skin-deNav-wrapper {
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 7px #cacaca;
+    z-index: 10;
+    .skin-deNav-top {
+        padding: 8px 0;
+        .skin-deNav-topLeft {
+            width: 35%;
+            .skin-topLeft-img {
+                width: 48px;
+                display: inline-block;
+                vertical-align: middle;
+                img {
+                    width: 100%;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+            span {
+                display: inline-block;
+                font-size: 14px;
+                margin-left: 45px;
+                vertical-align: middle;
+            }
+        }
+        .skin-deNav-topRight {
+            width: 65%;
+            .skin-deNav-dropDown {
+                width: 30%;
+                padding-right: 2%;
+                display: inline-block;
+                vertical-align: middle;
+                .el-select {
+                    width: 100%;
+                    height: 48px;
+                    .el-input {
+                        height: 100%;
+                        .el-input__inner {
+                            border-radius: inherit;
+                            height: 100%;
+                            border-color: #dadada;
+                        }
+                    }
+                }
+            }
+            .skin-deNav-doBtn {
+                width: 70%;
+                text-align: right;
+                overflow: hidden;
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 14px;
+                .skin-deNav-doBtnL {
+                    width: 63%;
+                    height: 48px;
+                    text-align: center;
+                    line-height: 40px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    .skin-deNav-proPri {
+                        font-weight: 700;
+                        margin-right: 28px;
+                    }
+                }
+                .skin-deNav-doBtnR {
+                    width: 35%;
+                    margin-left: 2%;
+                    height: 48px;
+                    text-align: center;
+                    line-height: 40px;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+    .skin-deNav-buttom {
+        background-color: #f6f6f6;
+        ul {
+            overflow: hidden;
+            .skin-topNav-proListItem {
+                margin-left: 52px;
+                position: relative;
+                a {
+                    color: #000;
+                    font-size: 14px;
+                    display: inline-block;
+                    height: 50px;
+                    line-height: 50px;
+                }
+            }
+            .skin-topNav-proListItem.isActive {
+                a {
+                    color: #999;
+                }
+            }
+            .skin-topNav-proListItem:first-child {
+                margin-left: 0;
+            }
+            .skin-topNav-proListItem.isActive:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 5px;
+                background-color: #d71a52;
+            }
+        }
+    }
+}
+// 悬浮导航条下
+.skin-bottom-fixnav {
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    background-color: #000;
+    box-shadow: 0 4px 7px #cacaca;
+    z-index: 8;
+}
+.skin-bottom-fixnav .skin-bpro-small {
+    padding: 8px 0;
+}
+.skin-bpro-small .skin-b-rightbox {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.skin-b-rightbox .skin-b-dropbox {
+    width: 35%;
+    padding-right: 2%;
+    display: inline-block;
+}
+.skin-b-rightbox .skin-b-dropbox span {
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    width: 16%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+}
+.skin-b-rightbox .skin-b-dropbox /deep/ .el-select {
+    width: 84%;
+    float: right;
+}
+.skin-b-rightbox .skin-b-dropbox /deep/ .el-input {
+    width: 100%;
+}
+.skin-b-rightbox .skin-b-dropbox /deep/ .el-input__inner {
+    color: #fff;
+    border: 0;
+    background-color: #111;
+    padding-left: 0;
+}
+.skin-b-rightbox .skin-b-btnbox {
+    width: 65%;
+    text-align: right;
+    overflow: hidden;
+    display: inline-block;
+}
+.skin-b-btnbox .skin-b-inshopbtn {
+    color: #000;
+    font-size: 12px;
+    border-color: #fff;
+    text-align: center;
+    margin-left: 2%;
+    width: 45%;
+    height: 40px;
+    line-height: 30px;
+    background-color: #fff;
+}
+.skin-b-btnbox .skin-b-inshopbtn:first-child {
+    width: 51%;
+    margin-left: 0;
+    color: #fff;
+    background-color: #000;
+}
+// 内容
+.skin-detail-top /deep/ .el-breadcrumb__inner {
+    color: #6d6d6d;
+}
+.skin-detail-top /deep/ .el-breadcrumb__inner.is-link {
+    font-weight: 500;
+    color: #111;
+}
+.skin-detail-container {
+    
+    .skin-detail-top {
+        font-size: 14px;
+        padding: 40px 0 90px;
+    }
+    .skin-cont-main {
+        padding: 0 20px;
+        position: relative;
+        .skin-inner {
+            width: auto;
+            padding: 0;
+        }
+    }
+    .skin-cont-description {
+        padding-top: 30px;
+        border-top: 1px solid #dadada;
+        .skin-cont-descBox {
+            margin: 0 auto;
+            .skin-cont-descItem {
+                float: left;
+                margin-left: 48px;
+                a {
+                    padding: 10px 0;
+                    display: inline-block;
+                    color: #000;
+                    position: relative;
+                }
+            }
+            .skin-cont-descItem.on {
+                a:after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    left: 0;
+                    bottom: 0;
+                    background-color: #000;
+                }
+            }
+            .skin-cont-descItem:first-child{
+                margin-left: 0;
+            }
+            .skin-cont-descCont {
+                margin-top: 22px;
+                .skin-desc-contBox {
+                    overflow: hidden;
+                    p {
+                        font-size: 14px;
+                        color: red;
+                    }
+                }
+                .skin-cont-contItem {
+                    display: none;
+                }
+                .skin-cont-contItem.on {
+                    display: block;
+                }
+            }
+        }
+    }
+    .skin-desc-wrapper {
+        margin-top: 60px;
+        padding-top: 30px;
+        border-top: 1px solid #dadada;
+        .skin-desc-imgTit {
+            font-size: 24px;
+            text-align: center;
+        }
+        .skin-desc-imgBox {
+            img {
+                width: 790px;
+                max-width: 100%;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    }
+    .skin-arc-recommend {
+        .skin-recommend-goods {
+            margin-bottom: 45px;
+            .skin-re-gLists {
+                padding: 60px 0 26px;
+                text-align: center;
+                .skin-re-gItem {
+                    display: inline-block;
+                    padding: 0 30px;
+                    h2 {
+                        position: relative;
+                    }
+                }
+                .skin-re-gItem.active {
+                    h2:after {
+                        display: block;
+                        position: absolute;
+                        bottom: -7px;
+                        content: '';
+                        width: 100%;
+                        height: 2px;
+                        background: #000;
+                    }
+                }
+            }
+            .skin-re-goodsCont {
+                padding: 20px 0;
+                .skin-re-gLists-sm {
+                    display: none;
+                    li {
+                        padding: 0;
+                        width: 137px;
+                        height: 38px;
+                        font-size: 12px;
+                        letter-spacing: 1px;
+                        line-height: 38px;
+                        display: inline-block;
+                        color: #999;
+                        border: 1px solid #dadada;
+                        cursor: pointer;
+                    }
+                    li:first-child {
+                        margin-right: 15px;
+                    }
+                    li.active {
+                        color: #fff;
+                        background: #000;
+                        border-color: #000;
+                    }
+                }
+                .skin-re-gBox {
+                    position: relative;
+                    .skin-rebtn-left,
+                    .skin-rebtn-right {
+                        display: none;
+                        position: absolute;
+                        font-size: 44px;
+                        top: 50%;
+                        z-index: 6;
+                        cursor: pointer;
+                    }
+                    .skin-rebtn-left {
+                        left: 0;
+                        margin-top: -134px;
+                    }
+                    .skin-rebtn-right {
+                        right: 0;
+                        margin-top: -134px;
+                    }
+                    .skin-re-swiper {
+                        margin: 0 22px;
+                        .skin-re-wrapper {
+                            width: 100%;
+                            height: 100%;
+                            .skin-re-wrapItem {
+                                width: 324px !important;
+                                margin: 0 2.5%;
+                                height: 100%;
+                                display: inline-block;
+                                position: relative;
+                                .skin-re-imgBox {
+                                    position: relative;
+                                    width: 100%;
+                                    a {
+                                        display: block;
+                                        width: 100%;
+                                        img {
+                                            width: 100%;
+                                            border-radius: 4px;
+                                        }
+                                    }
+                                    .skin-re-gHandle {
+                                        opacity: 0;
+                                        position: absolute;
+                                        left: 0;
+                                        top: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                        text-align: center;
+                                        white-space: nowrap;
+                                        background: rgba(255, 255, 255, .55);
+                                        .skin-re-btnBox {
+                                            display: inline-block;
+                                            align-items: center;
+                                            justify-content: center;
+                                            .skin-re-btnBuy,
+                                            .skin-re-btnDe {
+                                                width: 200px;
+                                                display: block;
+                                                padding: 0 20px;
+                                                height: 42px;
+                                                line-height: 42px;
+                                            }
+                                            .skin-re-btnBuy {
+                                                transition: all .2s ease-in-out;
+                                                margin-top: 60%;
+                                                margin-bottom: 20px;
+                                            }
+                                            .skin-re-btnDe {
+                                                color: #000;
+                                                background-color: #fff;
+                                                transition: all .2s ease-in-out;
+                                            }
+                                            .skin-re-btnDe:hover {
+                                                border-color: #999;
+                                            }
+                                        }
+                                    }
+                                }
+                                .skin-re-imgBox:hover {
+                                    .skin-re-gHandle {
+                                        opacity: 1;
+                                        transition: all .3s ease-in-out;
+                                    }
+                                }
+                                .skin-re-deBox {
+                                    .skin-re-gClassify {
+                                        height: 82px;
+                                        padding: 40px 38px 20px;
+                                        .skin-gcla-colorBox {
+                                            position: relative;
+                                            height: 22px;
+                                            overflow: hidden;
+                                            .skin-e-color {
+                                                margin: 0 20px;
+                                                overflow: hidden;
+                                                white-space: nowrap;
+                                                .skin-e-iconCont {
+                                                    width: 28px;
+                                                    height: 100%;
+                                                    font-size: 0;
+                                                    margin-right: 12px;
+                                                    display: inline-block;
+                                                    .skin-btn {
+                                                        display: block;
+                                                    }
+                                                    .skin-btn.on {
+                                                        border: 3px solid #000;
+                                                    }
+                                                }
+                                                .skin-e-iconCont:first-child {
+                                                    margin-left: 2px;
+                                                }
+                                            }
+                                            .skin-gcolor-left,
+                                            .skin-gcolor-right {
+                                                display: none;
+                                                width: 22px;
+                                                height: 28px;
+                                                position: absolute;
+                                                cursor: pointer;
+                                                font-size: 30px;
+                                            }
+                                            .skin-gcolor-left {
+                                                left: -8px;
+                                                top: -4px;
+                                            }
+                                            .skin-gcolor-right {
+                                                right: 0;
+                                                top: -4px;
+                                            }
+                                        }
+                                    }
+                                    .skin-rec-gTit {
+                                        font-size: 18px;
+                                        margin-bottom: 20px;
+                                        font-weight: 500;
+                                    }
+                                    .skin-rec-introudce {
+                                        min-height: 20px;
+                                        font-size: 18px;
+                                        margin-bottom: 50px;
+                                        a {
+                                            color: #999;
+                                        }
+                                    }
+                                    .skin-star-pri {
+                                        .skin-star-pri-l {
+                                            display: inline-block;
+                                            padding-right: 30px;
+                                            position: relative;
+                                        }
+                                        .skin-star-pri-l:after {
+                                            position: absolute;
+                                            bottom: 0;
+                                            right: 0;
+                                            display: block;
+                                            width: 1px;
+                                            height: 30px;
+                                            background: #dadada;
+                                            content: '';
+                                        }
+                                        .skin-star-pri-r {
+                                            font-size: 18px;
+                                            display: inline-block;
+                                            padding-left: 30px;
+                                        }
+                                    }
+                                    .skin-rec-buybtn {
+                                        display: none;
+                                        .skin-bto {
+                                            width: 100px;
+                                            height: 30px;
+                                            line-height: 18px;
+                                            font-size: 12px;
+                                        }
+                                    }
+                                }
+                            }
+                            .skin-re-wrapItem:last-child {
+                                margin-right: 0;
+                            }
+                            .skin-re-wrapItem:first-child {
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .skin-comment-main {
+        margin-top: 40px;
+        padding: 30px;
+        background-color: #f5f5f5;
+        .skin-com-tit {
+            padding: 30px 0;
+            font-size: 24px;
+            text-align: center;
+        }
+        .skin-com-cont {
+            .skin-com-views {
+                position: relative;
+                padding-bottom: 20px;
+                background-color: #fff;
+                .skin-views-header {
+                    padding: 40px 60px;
+                    overflow: hidden;
+                    .skin-views-title {
+                        font-size: 18px;
+                    }
+                    .skin-views-panal {
+                        margin-top: 20px;
+                        line-height: 42px;
+                        overflow: hidden;
+                        .skin-views-com {
+                            line-height: 42px;
+                            .skin-views-star {
+                                display: inline-block;
+                                vertical-align: middle;
+                                margin-left: 14px;
+                                li {
+                                    float: left;
+                                }
+                            }
+                        }
+                        .skin-com-btnBox {
+                            width: 29%;
+                            text-align: center;
+                            .skin-bto {
+                                width: 200px;
+                                height: 42px;
+                                line-height: 32px;
+                                color: #000;
+                                background: #fff;
+                            }
+                        }
+                    }
+                }
+                .skin-views-review {
+                    .skin-views-item {
+                        padding: 40px 60px;
+                        border-top: 1px solid #dadada;
+                        .skin-views-paBox {
+                            overflow: hidden;
+                            padding-left: 24%;
+                            position: relative;
+                            .skin-views-recBox {
+                                width: 57%;
+                                .skin-views-label {
+                                    display: inline-block;
+                                    color: #666;
+                                    font-size: 14px;
+                                    padding-left: 10px;
+                                    margin-left: 15px;
+                                    font-weight: 700;
+                                    position: relative;
+                                }
+                                .skin-views-label:before{
+                                    content: '';
+                                    width: 4px;
+                                    height: 4px;
+                                    border-radius: 50%;
+                                    background-color: #666;
+                                    margin-top: -2px;
+                                    position: absolute;
+                                    left: 0;
+                                    top: 50%;
+                                }
+                                .skin-views-recText {
+                                    margin-top: 15px;
+                                    font-size: 14px;
+                                    color: #666;
+                                    line-height: 1.5;
+                                }
+                                .skin-views-recImg {
+                                    margin-top: 15px;
+                                    overflow: hidden;
+                                }
+                                .skin-views-recBottom {
+                                    margin-top: 20px;
+                                    .skin-views-buyWay {
+                                        position: absolute;
+                                        left: 0;
+                                        top: 0;
+                                        .skin-views-recOwner {
+                                            span {
+                                                font-size: 14px;
+                                                color: #747474;
+                                                display: inline-block;
+                                                width: 90px;
+                                            }
+                                            .skin-views-recStar {
+                                                display: inline-block;
+                                                margin-left: 8px;
+                                                font-size: 0;
+                                                li {
+                                                    font-size: 18px;
+                                                    display: inline-block;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .skin-views-buyTime {
+                                        font-size: 14px;
+                                        color: #666;
+                                        p {
+                                            line-height: 1.4;
+                                        }
+                                    }
+                                }
+                                .skin-views-reply {
+                                    margin-top: 20px;
+                                    .el-divider--horizontal {
+                                        margin: 14px 0;
+                                    }
+                                    .skin-views-replyCont {
+                                        color: #737373;
+                                        font-size: 14px;
+                                        line-height: 1.6;
+                                    }
+                                }
+                            }
+                            .skin-views-usefulBox {
+                                width: 36%;
+                                padding: 5% 4%;
+                                font-size: 14px;
+                                color: #7d7d7d;
+                                text-align: center;
+                                background-color: #f5f5f5;
+                                .skin-views-usefulBtn {
+                                    padding: 10% 0 20%;
+                                    overflow: hidden;
+                                    .skin-bto-hover {
+                                        width: 48%;
+                                        height: 42px;
+                                        line-height: 30px;
+                                        float: left;
+                                    }
+                                    .skin-bto-hover:last-child {
+                                        margin-left: 4%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .skin-showmore-box {
+                    text-align: center;
+                    .skin-showmore-btn {
+                        width: 200px;
+                        color: #000;
+                        border-color: #eee;
+                        height: 42px;
+                        line-height: 32px;
+                        background: #eee;
+                    }
+                }
+            }
+        }
+    }
+}

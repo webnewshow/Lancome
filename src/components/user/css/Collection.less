@@ -1,0 +1,380 @@
+.skin-collection{
+    .ungoods{
+        display: none;
+    }
+}
+
+.skin-collection-header{
+    margin-bottom: 50px;
+    h2{
+        padding-left: 50px;
+        font-size: 32px;
+    }
+    .Return{
+        display: none;
+    }
+    p{
+        display: none;
+    }
+}
+// 收藏将其隐藏、否则显示出来
+.skin-collection-goods,.skin-like-title{
+    display: none;
+}
+.icon{
+    display: inline-block;
+    background: url(../img/icon.png) no-repeat;
+}
+.skin-collection-goods{
+    padding-left: 50px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 24px;
+    a{
+        margin-top: 40px;
+        text-decoration: none;
+        font-size: 14px;
+        padding: 10px 60px !important;
+    }
+}
+.skin-like{
+    padding: 46px 0 70px;
+    background-color: #fff;
+    .skin-like-title{
+        text-align: center;
+        font-size: 24px;
+    }
+    .skin-tab-con{
+        padding: 20px 0;
+        .skin-swiper-container{
+            margin: 0 27px;
+            .skin-swiper-wrapper{
+                font-size: 0;
+                .skin-swiper-item{
+                    width: 33.33%;
+                    margin-bottom: 70px;
+                    display: inline-block;
+                    vertical-align: top;
+                    .skin-thumbnail{
+                        .skin-goods-classfy{
+                            margin-bottom: 20px;
+                        }
+                        padding: 0;
+                        .skin-imgbox{
+                            position: relative;
+                            .skin-tag{
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                z-index: 2;
+                                span{
+                                    display: inline-block;
+                                    width: 60px;
+                                    height: 30px;
+                                    background: #000 !important;
+                                    font-size: 14px;
+                                    letter-spacing: .75px;
+                                    color: #fff;
+                                    line-height: 30px;
+                                    text-align: center;
+                                }
+                            }
+                            .skin-handle{
+                                display: block;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                z-index: 1;
+                                width: 100%;
+                                height: 100%;
+                                white-space: nowrap;
+                                text-align: center;
+                                // background: rgba(255,255,255,.55);
+                                .skin-btn-box{
+                                    vertical-align: middle;
+                                    position: relative;
+                                    top: 50%;
+                                    display: none;
+                                    margin: 0;
+                                    transform: translateY(-50%);
+                                    width: 90%;
+                                    padding: 0;
+                                    .skin-more,.skin-quickbuy{
+                                        margin-bottom: 20px;
+                                        font-size: 14px;
+                                        display: block;
+                                        border: 1px solid #000;
+                                        height: 42px;
+                                        line-height: 40px;
+                                        width: 100%;
+                                    }
+                                    .skin-quickbuy{
+                                        background: #000;
+                                        color: white !important;
+                                    }
+                                    .skin-quickbuy:hover{
+                                        background: #D61B52;
+                                        border-color: #D61B52;
+                                    }
+                                    .skin-more{
+                                        background: #fff;
+                                        color: #000 !important;
+                                    }
+                                    .skin-more:hover{
+                                        border: 1px solid #cccccc;
+                                    }
+                                }
+                            }
+                            img{
+                                border-radius: 4px;
+                                width: 100%;
+                                height: auto;
+                                margin-left: auto;
+                                margin-right: auto;
+                            }
+                        }
+                        .skin-imgbox:hover .skin-btn-box{
+                            display: block;
+                        }
+                        .skin-imgbox:hover .skin-handle{
+                            background: rgba(255,255,255,.55);
+                        }
+                        .skin-deatails{
+                            position: relative;
+                            padding: 40px 34px 18px;
+                            text-align: center;
+                            .goods-icon-del{
+                                background-position: -369px -179px;
+                                width: 11px;
+                                height: 11px;
+                                display: inline-block;
+                            }
+                            .goods-del{
+                                z-index: 20;
+                                width: 50px;
+                                line-height: 20px;
+                                text-align: left;
+                                position: absolute;
+                                color: #000000;
+                                font-size: 15px;
+                                cursor: pointer;
+                                bottom: -20%;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                border-bottom: 1px solid #000000;
+                            }
+                            p{
+                                margin: 0;
+                                font-size: 18px;
+                                color: #000;
+                                line-height: 22px;
+                            }
+                            .skin-goods-tit{
+                                     margin-bottom: 20px;
+                                    font-size: 18px;
+                                    letter-spacing: 1px;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    font-weight: normal;
+                                    -o-text-overflow: ellipsis;
+                                    text-overflow: ellipsis;
+                                    a{
+                                        text-decoration: none;
+                                    }
+                            }
+                            .skin-goods-introudce{
+                                white-space: normal;
+                                margin-bottom: 37px;
+                                margin-bottom: 50px;
+                                margin: 0 0 10px;
+                                font-size: 18px;
+                                letter-spacing: 1px;
+                                // white-space: nowrap;
+                                overflow: hidden;
+                                // -o-text-overflow: ellipsis;
+                                text-overflow: ellipsis;
+                                min-height: 20px;
+                                a{
+                                    text-decoration: none;
+                                    color: #999;
+                                    display: -webkit-box;
+                                    line-height: 20px;
+                                    -webkit-box-orient: vertical;
+                                    -webkit-line-clamp: 2;
+                                    overflow: hidden;
+                                    height: 40px;
+                                }
+                            }
+                            .skin-goods-row{
+                                .skin-bto-hover{
+                                    display: none;
+                                }
+                                font-size: 0;
+                                position: relative;
+                                top: 30px;
+                                margin: 0;
+                                padding: 0;
+                                .skin-evaluate{
+                                    .skin-icon-star{
+                                        width: 24px;
+                                        display: inline-block;
+                                        height: 19px;
+                                        width: 100%;
+                                        position: relative;
+                                        top: 5px;
+                                        background-position: -3px -187px;
+                                    }
+                                    position: relative;
+                                    padding-right: 18px;
+                                    text-align: right;
+                                    width: 50%;
+                                    height: 17px;
+                                    float: left;
+                                    vertical-align: bottom;
+                                    .skin-star-warp{
+                                        position: relative;
+                                        // overflow: hidden;
+                                        width: 85px;
+                                        height: 11px;
+                                        font-size: 0;
+                                    }
+                                }
+                                .skin-evaluate::after{
+                                    display: block;
+                                    position: absolute;
+                                    right: 0;
+                                    bottom: -5px;
+                                    content: '';
+                                    width: 1px;
+                                    height: 30px;
+                                    background: #dadada;
+                                }
+                                .skin-price{
+                                    padding-left: 30px;
+                                    font-size: 18px;
+                                    float: left;
+                                    color: #000;
+                                    width: 50%;
+                                    vertical-align: bottom;
+                                    text-align: left;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width:1039px){
+    .skin-collection{
+        // 没有收藏商品
+        .ungoods{
+            display: inline-block;
+        }
+    }
+    .skin-swiper-container{
+        margin: 0 !important;
+        display: none;
+    }
+    .skin-tab-con{
+        padding: 0 !important;
+    }
+    .skin-collection{
+        .skin-like{
+            padding: 0;
+        }
+        .skin-collection-header ,.ungoods{
+            h2{
+                margin: 0;
+                padding: 0;
+                font-size: 15px;
+                font-weight: normal;
+                margin-bottom: 12px;
+            }
+            .Return{
+                display: block;
+                cursor: pointer;
+            }
+            .Return{
+                display: block !important;
+                padding: 15px 0;
+            }
+            .Return::before{
+                padding: 0 6px;
+                content: "<";
+                position: relative;
+                color: #acacac;
+            }
+            p{
+                font-size: 12px;
+                text-align: center;
+                background: #dadada;
+                color: #000;
+                line-height: 25px;
+                font-weight: 500;
+                display: block !important;
+                height: 25px;
+                margin-bottom: 20px
+            }
+        }
+        .ungoods{
+            .Return{
+                text-decoration: underline;
+            }
+        }
+        .skin-deatails{
+            .skin-goods-row{
+                .skin-bto-hover{
+                    font-size: 14px;
+                    display: inline-block !important;
+                    margin-top: 5px;
+                    margin-bottom: -5px;
+                }
+            } 
+            padding: 0 !important;
+            .goods-del{
+                bottom: -30% !important;
+            }
+        }
+    }
+    .skin-imgbox{
+        .skin-tag{
+            display: none;
+        }
+    }
+    .skin-imgbox:hover .skin-btn-box{
+        display: none !important;
+    }
+    .skin-swiper-item{
+        width: 50% !important;
+        .skin-evaluate{
+            float: none !important;
+            width: 100% !important;
+            text-align: center !important;
+            padding: 0 !important;
+            margin-bottom: 10px;
+        }
+        .skin-imgbox{
+            .skin-imgbox:hover{
+                display: none;
+            }
+        }
+        .skin-evaluate::after{
+            display: none !important;
+            content: '';
+        }
+        .skin-price{
+            float: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            text-align: center !important;
+            width: 100% !important;
+        }
+       .skin-icon-star{
+           width: 80px !important;
+       }
+    }
+}

@@ -1,0 +1,426 @@
+// 登录 注册样式
+@import '../../../assets/iconfont/iconfont.css';
+.skin-button{
+  float: right;
+  cursor: pointer;
+}
+.skin-login span, .dialog-login-register span{
+  cursor: pointer;
+}
+.skin-login-content{
+  width: 350px;
+  float: right;
+  // height: 660px;
+  border: 1px solid #cccccc;
+  background: white;
+  position: relative;
+  top: 16px;
+  right: 10px;
+  // display: none;
+}
+.el-form.demo-ruleForm>span{
+  line-height: 20px;
+}
+.code /deep/ .el-form-item__error,.imgpic /deep/ .el-form-item__error{
+  top: 50% !important;
+}
+.skin-login-tip{
+  background: #D51B51;
+  color: white;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+}
+.skin-register-from{
+  display: none;
+  height: 500px;
+}
+.skin-login-from{
+  display: block;
+}
+
+.skin-login-register{
+  .login,.register{
+    color: #999999;
+  }
+  .login.on,.register.on{
+    color: #000000;
+  }
+      z-index: 20;
+}
+.skin-login-register li{
+  font-size: 24px;
+  float: left;
+  width: 50%;
+  cursor: pointer;
+  text-align: center;
+  line-height: 20px;
+  margin-bottom: 30px;
+  z-index: 20;
+}
+.skin-login-register li:last-child{
+  border-left: 1px solid #cccccc;
+}
+.skin-login-data{
+  padding: 40px;
+}
+.skin-login-from  /deep/ .el-form-item__content ,.skin-register-from /deep/ .el-form-item__content{
+  margin-left: 0 !important;
+}
+.skin-login-from /deep/ .el-input__inner ,.skin-register-from /deep/ .el-input__inner{
+  border-radius: 0;
+  border: 1px solid #000000;
+}
+.skin-login-from .imgpic ,.skin-register-from .imgpic{
+  width: 150px;
+  margin-bottom: -16px; 
+}
+.skin-login-from .code ,.skin-register-from .code{
+  width: 180px;
+}
+.skin-login-from .button ,.skin-register-from .button{
+  position: relative;
+  top: -40px;
+  left: 140px;
+  line-height: 40px;
+  width: 80px;
+  min-width: 70px;
+  height: 38px;
+  color: white;
+  padding: 12px 24px;
+  margin: 0;
+  line-height: 38px;
+  background: #000000;
+  cursor: pointer;
+}
+.el-dialog .skin-register-from .button{
+  left: 190px !important;
+}
+.skin-register-btn:hover, .skin-register-from .button:hover, .skin-login-btn:hover{
+  background: #D61B52;
+}
+
+.skin-Agreement{
+  position: relative;
+  top: -50px;
+  line-height: 25px;
+  text-align: left;
+}
+// 是否记住密码
+.remember{
+	appearance: none;
+	outline: none;
+}
+.remember:after{
+	content: '';
+	display: inline-block;
+	background: url(../img/icon.png) no-repeat;
+	width: 18px;
+  height: 18px;
+  background-position: -20px -322px;
+  vertical-align: middle;
+	vertical-align: -1px;
+}
+.remember:checked:after{
+	background-position:-41px -322px;
+}
+
+.skin-register-btn{
+  width: 100%;
+  border-radius: 0;
+  position: relative;
+  top: -60px;
+  background: #000000;
+  outline: none;
+  border: 0;
+  font-size: 18px;
+}
+.skin-login .skin-text{
+  display: none;
+}
+.skin-login-btn{
+  width: 100%;
+  border-radius: 0;
+  position: relative;
+  background: #000000;
+  top: 20px;
+  outline: none;
+  border: 0;
+  font-size: 18px;
+}
+.skin-span{
+    display: inline-block;
+    top: -60px;
+    text-align: left;
+    position: relative;
+    font-size: 14px;
+}
+.skin-login-span{
+  display: inline-block;
+  text-align: left;
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+}
+.skin-register-content .iconfont{
+  cursor: pointer;
+}
+
+// big
+.dialog-login-register /deep/ .el-dialog{
+  width: 80% !important;
+}
+.el-dialog .skin-login{
+  // height: 380px;
+}
+.el-dialog .skin-login-content{
+  background: #ffffff;
+  border: 0;
+  float: none;
+}
+.dialog-login-register .skin-login-content{
+  position: relative;
+  right: 0;
+  width: 100%;
+}
+.dialog-login-register /deep/ .el-dialog__header{
+  padding: 0;
+}
+.dialog-login-register /deep/ .el-dialog{
+  background: transparent;
+  box-shadow: none;
+}
+
+
+.dialog-login-register /deep/ .el-dialog__headerbtn .el-dialog__close{
+  color: white;
+  position: absolute;
+  right: -30px;
+  top: 32px;
+  font-size: 25px;
+}
+.skin-register-from .code a{
+  text-decoration: none;
+}
+.dialog-login-register /deep/ .el-form-item__content{
+  width: 50%;
+}
+.dialog-login-register .fr{
+  position: relative;
+  right: 450px;
+}
+.dialog-login-register .skin-text{
+  display: block;
+  position: absolute;
+  top: 30%;
+  right: -10%;
+  line-height: 40px;
+  width: 50%;
+}
+.dialog-login-register .dialog-login-register li:first-child{
+  text-align: right !important;
+}
+.dialog-login-register .skin-text-list{
+  text-indent: 16px;
+}
+.dialog-login-register .skin-text-item{
+  list-style: outside;
+}
+.dialog-login-register .skin-register-from{
+  display: none;
+}
+.dialog-login-register .skin-login-from{
+  display: block;
+}
+.dialog-login-register .imgpic{
+  position: absolute;
+  left: 55%;
+  width: 20%;
+  top: 125px;
+}
+.dialog-login-register .code{
+  position: absolute;
+  left: 55%;
+  width: 18%;
+  top: 185px;
+}
+.dialog-login-register .imgpic /deep/ .el-form-item__content{
+  width: 70%;
+}
+.dialog-login-register .code /deep/ .el-form-item__content{
+  width: 100%;
+  a{
+    text-decoration: none;
+  }
+}
+.dialog-login-register .Agreement /deep/ .el-form-item__content{
+  width: 100%;
+}
+.dialog-login-register .skin-Agreement{
+  top: -10px;
+}
+.dialog-login-register .skin-register-btn{
+  top: -10px;
+}
+.dialog-login-register .skin-span{
+  display: none;
+}
+.dialog-login-register .skin-register-from{
+  height: 400px;
+}
+.dialog-login-register .skin-register-from a ,.skin-login a{
+  z-index: 200;
+  text-decoration: underline;
+}
+
+// 响应式样式
+// 1039
+@media screen and  (max-width:1039px){
+  .code /deep/ .el-form-item__error,.imgpic /deep/ .el-form-item__error{
+    top: 40px !important;
+  }
+  .el-dialog .skin-register-from .button{
+    left: 101% !important;
+  }
+  .dialog-login-register /deep/ .el-dialog{
+    width: 100% !important;
+  }
+  .dialog-login-register /deep/ .el-dialog__headerbtn .el-dialog__close{
+    color: white;
+    position: absolute;
+    font-size: 25px;
+    right: 0;
+    top: 0;
+  }
+
+  .dialog-login-register .button{
+    position: relative;
+    top: -40px;
+    left: 102%;
+    line-height: 40px;
+    width: 20%;
+    min-width: 70px;
+    height: 38px;
+    color: white;
+    padding: 12px 24px;
+    margin: 0;
+    line-height: 38px;
+    background: #000000;
+    cursor: pointer;
+  }
+
+  .dialog-login-register /deep/ .el-form-item__content{
+    width: 100%;
+  }
+  .dialog-login-register .imgpic{
+    position: relative;
+    width: 88%;
+    left: 0;
+    top: 0px;
+    height: 40px;
+    margin-bottom: 0;
+  }
+  .dialog-login-register .imgpic /deep/ .el-form-item__content{
+    width: 100%;
+  }
+  
+  .dialog-login-register /deep/ .el-form-item__content{
+    height: 40px;
+  }
+  .dialog-login-register /deep/ .el-input__inner{
+    // margin-top: 20px;
+  }
+  .dialog-login-register .skin-Agreement{
+    position: relative;
+    // top: -50px;
+    line-height: 25px;
+    text-align: left;
+    top: 10px;
+  }
+  .dialog-login-register .code{
+    position: relative !important;
+    left: 0;
+    width: 90%;
+    margin-top: 20px;
+    top: 0;
+    
+  }
+  .dialog-login-register .skin-text{
+    display: none;
+  }
+  .dialog-login-register .fr{
+    right: 0;
+  }
+}
+
+@media (max-width:992px){
+  .dialog-login-register .button{
+    // left: 110%;
+  }
+  .dialog-login-register /deep/ .el-form-item__content{
+    height: 40px;
+  }
+  .dialog-login-register /deep/ .el-input__inner{
+    // margin-top: 20px;
+  }
+  .dialog-login-register .skin-Agreement{
+    position: relative;
+    // top: -50px;
+    line-height: 25px;
+    text-align: left;
+    top: 10px;
+  }
+  .dialog-login-register .code{
+    position: relative !important;
+    left: 0;
+    width: 88%;
+    margin-top: 20px;
+    top: 0;
+  }
+  // .dialog-login-register .button{
+  //   padding: 12px 18px;
+  // }
+}
+
+@media (max-width:768px){
+  .dialog-login-register .button{
+    // left: 110%;
+  }
+  .dialog-login-register /deep/ .el-form-item__content{
+    height: 40px;
+  }
+  .dialog-login-register /deep/ .el-input__inner{
+    // margin-top: 20px;
+  }
+  .dialog-login-register .skin-Agreement{
+    position: relative;
+    line-height: 25px;
+    text-align: left;
+    top: 10px;
+  }
+  .dialog-login-register .code{
+    position: relative !important;
+    left: 0;
+    width: 70%;
+    margin-top: 20px;
+    top: 0;
+  }
+  .dialog-login-register .imgpic{
+    position: relative;
+    width: 60%;
+    left: 0;
+    top: 0px;
+    height: 40px;
+    margin-bottom: 0;
+  }
+  .dialog-login-register .skin-register-from{
+    height: 480px;
+  }
+  .dialog-login-register .skin-register-btn{
+    top: -8px;
+  }
+  .dialog-login-register .button{
+    padding: 12px 20px;
+  }
+}
+

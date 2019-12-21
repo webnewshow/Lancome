@@ -1,0 +1,276 @@
+.skin-address{
+    // display: none;
+    .Return{
+        display: none;
+    }
+    /deep/ .el-dialog{
+        width: 71% !important;
+        padding: 50px;
+        .el-dialog__header{
+            padding: 0;
+            margin-bottom: 40px;
+            .el-dialog__title{
+                font-weight: 700;
+            }
+        }
+        .el-dialog__body{
+            padding: 0;
+        }
+        .el-dialog__footer{
+            .el-button--primary:hover{
+                background:#D61B52;
+                border: 0;
+            }
+            .el-button--primary{
+                background: #000000;
+                border: 0;
+            }
+            .el-button{
+                border-radius: 0;
+            }
+        }
+    }
+    .del /deep/ .el-dialog__header{
+        text-align: center;
+        .el-dialog__title{
+            font-size: 24px;
+        }
+        font-weight: 700;
+    }
+    .del /deep/ .el-dialog__footer{
+        text-align: center;
+        .el-button{
+            width: 140px;
+        }
+        .el-button--default{
+            background: #D61B52;
+            color: white;
+        }
+    }
+}
+.skin-address-header{
+    margin-bottom: 30px;
+    .skin-address-title{
+        padding-left: 50px;
+        font-size: 32px;
+        margin-bottom: 30px;
+        font-weight: 700;
+    }
+    .skin-title{
+        display: none;
+    }
+    a{
+        text-decoration: none;
+        padding: 10px 50px !important;
+        font-size: 14px;
+        margin-right: 30px;
+    }
+}
+.skin-address-list{
+    height: 100%;
+    .skin-address-item{
+        height: 200px;
+        position: relative;
+        font-size: 14px;
+        background: #fff;
+        border-top: 4px solid #000;
+        margin-bottom: 25px;
+        padding: 30px 30px 44px;
+        .skin-address-seting{
+            float: left;
+            width: 27%;
+            padding: 0 10px 0 0;
+        }
+        .skin-address-content{
+            float: left;
+            width: 60%;
+            border-left: 2px solid #cccccc;
+            padding: 0 20px 0 30px;
+            p{
+                margin: 0 0 10px;
+            }
+        }
+        .skin-address-edit{
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            z-index: 1;
+            .skin-bto-hover{
+                padding: 0;
+                background: transparent !important;
+                border: 0;
+            }
+            a{
+                color: #999;
+                margin-left: 10px;
+            }
+        }
+    }
+   .skin-address-item:last-child{
+       margin-bottom: 0;
+   }
+}
+.skin-add-address{
+
+    .skin-add-item{
+        .skin-item-object{
+            float: left;
+            width: 50%;
+        }
+    }
+    /deep/ .el-form-item{
+        width: 50% !important;
+        margin-bottom: 38px;
+        float: left;
+        padding-right: 10px;
+        position: relative;
+        .el-form-item__label{
+            position: absolute;
+            width: 80px;
+            top: -38px;
+            // left: -10px
+            text-align: left;
+        }
+        .el-form-item__content{
+            margin-left: 0 !important;
+            .el-input{
+                // width: 78% !important;
+                .el-input__inner{
+                    border-radius: 0;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+    /deep/ .el-form-item.date{
+        position: relative;
+        .date-title{
+            position: absolute;
+            top: -40px;
+            left: 0;
+            // background: red;
+            z-index: 5;
+            width: 100%;
+            span{
+                width: 32%;
+                display: inline-block;
+            }
+        }
+        margin-bottom: 0;
+        .el-select{
+            width: 32% !important;
+            // padding: 0 4px;
+        }
+    }
+}
+.icon{
+    display: inline-block;
+    background: url(../img/icon.png) no-repeat;
+}
+
+// 是否记住密码
+.remember{
+	appearance: none;
+	outline: none;
+}
+.remember:after{
+	content: '';
+	display: inline-block;
+	background: url(../img/icon.png) no-repeat;
+	width: 12px;
+    height: 12px;
+    background-position: -369px -103px;
+    vertical-align: middle;
+	vertical-align: -1px;
+}
+.remember:checked:after, .remember:checked:after{
+	background-position: -369px -85px;
+}
+
+@media (max-width:1039px){
+    .skin-address{
+        /deep/ .el-dialog{
+            width: 100% !important;
+        }
+        .skin-address-list{
+            margin-top: 100px;
+            .skin-address-item{
+                height: 100%;
+                padding: 0;
+                margin-top: 30px;
+                border: 0;
+                .skin-address-seting,.skin-address-content{
+                    float: none;
+                }
+                .skin-address-seting{
+                    text-decoration: underline;
+                    color: #999999;
+                    .remember{
+                        display: none;
+                    }
+                }
+                .skin-address-content{
+                    border: 0;
+                    padding: 0;
+                    margin-top: 20px;
+                    padding-top: 18px;
+                    width: 100%;
+                    border-top: 1px solid #cccccc;
+                }
+                .skin-address-edit{
+                    position: relative;
+                    top: 10px;
+                    bottom: 20px;
+                    right: 0;
+                    .bj,.del{
+                        position: relative;
+                        background: #000000 !important;
+                        padding: 5px 25px;
+                        margin-left: 0;
+                        margin-right: 10px;
+                        text-decoration: none;
+                        color: white;
+                    }
+                }
+            }
+        }
+        // display: block;
+        .Return{
+            display: block !important;
+            margin: 15px 0;
+        }
+        .Return::before{
+            padding: 0 6px;
+            content: "<";
+            position: relative;
+            color: #acacac;
+        }
+        .skin-title{
+            display: block !important;
+            h2{
+                padding: 0 !important;
+                font-size: 15px;
+                margin: 5px 0 15px;
+                font-weight: normal;
+            }
+            p{
+                font-size: 12px;
+                text-align: center;
+                background: #dadada;
+                color: #000;
+                line-height: 25px;
+                display: block !important;
+                height: 25px;
+                margin-bottom: 20px
+            }
+    }
+    .skin-address-title{
+        display: none;
+    }
+    .skin-bto-hover{
+        float: none !important;
+        position: absolute;
+        right: 0;
+    }
+}
+}
