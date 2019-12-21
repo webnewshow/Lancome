@@ -44,11 +44,11 @@
     <!--  起底价格-->
        <div class="skin-j-prop">
            <!-- 过渡符号 -->
-       <div class="skin-g-d"><input class="skin-input-o" type="text" value="300" disabled =“disabled”></div>
+       <div class="skin-g-d"><input class="skin-input-o" type="text"  min="0" value="0" disabled =“disabled”></div>
           <!-- 过渡符号 -->
        <div class="skin-g-d">———</div>
        <!-- 输入价格 -->
-       <div class="skin-s-r"><input @keydown.enter="inputFun"   class="skin-input-oy" type="number"></div>
+       <div class="skin-s-r"><input onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}"  @keydown.enter="inputFun" class="skin-input-oy" type="number"></div>
        </div>
   </el-collapse-item>
 </el-collapse>
@@ -92,10 +92,10 @@
       <!-- 列表内容部分 -->
       <div class="skin-contnent-ri">
         <ul  class="skin-cont-rilists clearfix">
-            <li v-for="(item) in list" :key="item.id" class="skin-cont-rilist">
+            <li v-for="(item) in list"  :key="item.id"  class="skin-cont-rilist">
               <!-- 头部图片内容 -->
-               <div class="skin-chudo">
-                  <img src="../img/2.jpg">
+               <div class="skin-chudo" >
+                    <img :src="api + item.g_img.split(',')[0]">
                 </div>
                 <!-- 下部分文字内容 -->
                 <div class="skin-bu-cone">
@@ -190,11 +190,13 @@ const cityOptions2 = ['奢宠抗老', '去黑眼圈', '淡斑焕白', '润泽保
 export default{
     data () {
         return {
+            api: 'http://192.168.97.254:3000/',
             inputValue: '',
             isClicked: [],
             checkboxGroup1: [],
             checkboxGroup2: [],
             allArr: [],
+            datas: '',
             cityOptions: ['隔离防晒', '卸妆乳', '卸妆&洁面', '面膜', '精华', '美容液/爽肤水', '乳液', '眼霜', '面霜', '晚霜', '修容', '眼部产品'],
             cities2: cityOptions2,
             activeNames: ['1', '2', '3'],
@@ -243,7 +245,7 @@ export default{
         inputFun (e) {
             // e.target 指向了dom元素
             let data = this.inputValue = e.target.value
-            console.log(data)
+            // console.log(data)
             this.$store.dispatch('setPrice', data)
         },
         // 选中排序方式进行列表渲染
@@ -311,7 +313,7 @@ export default{
             screen = this.allArr.filter((item, index) => {
                 return this.isClicked[index]
             })
-            console.log(screen)
+            // console.log(screen)
             this.$store.dispatch('setGoods', screen)
         }
     }

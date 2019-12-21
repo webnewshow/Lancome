@@ -5,57 +5,35 @@
       <!-- 左边第一模块 -->
       <div class="skin-text-l">
         <div class="skin-f-f">
-            <p class="skin-f-fu">彩妆</p>
+            <p class="skin-f-fu">护肤</p>
         </div>
            <!-- 第二模块 三大类 -->
          <div class="skin-f-th">
-            <p class="skin-f-fh"><router-link to="ProType">底妆</router-link></p>
+            <p class="skin-f-fh"><router-link to="ProType">产品类型</router-link></p>
         </div>
         <div class="skin-f-th">
-            <p class="skin-f-fh"><router-link to="ProLine">唇妆</router-link></p>
+            <p class="skin-f-fh"><router-link to="ProLine">产品系列</router-link></p>
         </div>
         <div class="skin-f-th">
-            <p class="skin-f-fh"><router-link to="SkinNeeds">眼妆</router-link></p>
-        </div>
-        <div class="skin-f-th">
-            <p class="skin-f-fh"><router-link to="SkinNeeds">美妆&工具</router-link></p>
+            <p class="skin-f-fh"><router-link to="SkinNeeds">护肤需求</router-link></p>
         </div>
         <div class="skin-element skin-el-deep">
       <el-collapse v-model="activeNames" @change="handleChange">
         <el-collapse-item class="skin-s-x" title="产品筛选" name="1">
           <!-- <p>卸妆乳</p> -->
            <el-checkbox-group class="skin-h-h" v-model="checkList">
-            <el-checkbox label="全部套装"></el-checkbox><br>
-            <el-checkbox label="妆前乳"></el-checkbox><br>
-            <el-checkbox label="气垫霜"></el-checkbox><br>
-            <el-checkbox label="粉底"></el-checkbox><br>
-            <el-checkbox label="腮红"></el-checkbox><br>
-            <el-checkbox label="唇膏"></el-checkbox><br>
-            <el-checkbox label="唇釉"></el-checkbox><br>
-            <el-checkbox label="眉部"></el-checkbox><br>
-            <el-checkbox label="睫毛膏"></el-checkbox><br>
-            <el-checkbox label="眼影"></el-checkbox><br>
-            <el-checkbox label="眼线笔"></el-checkbox><br>
-            <el-checkbox label="遮瑕"></el-checkbox><br>
+              <div v-for="(item,index) in cityOptions" :key="item">
+                <el-checkbox @change="ddd(index)" :label="item"></el-checkbox>
+              </div>
           </el-checkbox-group>
         </el-collapse-item>
       </el-collapse>
   <!--  护肤需求 -->
   <el-collapse accordion>
-  <el-collapse-item title="妆效" name="2">
-     <el-checkbox label="水润"></el-checkbox><br>
-            <el-checkbox label="光泽感"></el-checkbox><br>
-            <el-checkbox label="哑光"></el-checkbox><br>
-            <el-checkbox label="卷翘"></el-checkbox><br>
-            <el-checkbox label="纤长"></el-checkbox><br>
-            <el-checkbox label="浓密"></el-checkbox><br>
-            <el-checkbox label="丝亮"></el-checkbox><br>
-  </el-collapse-item>
-</el-collapse>
-<!-- 功效 -->
- <el-collapse accordion>
-  <el-collapse-item title="功效" name="3">
-     <el-checkbox label="养肤"></el-checkbox><br>
+  <el-collapse-item title="护肤需求" name="2">
+    <div v-for="(item, index) in cities2" :key="item" >
+      <el-checkbox @change="ddd(index + cityOptions.length)" :label="item"></el-checkbox>
+    </div>
   </el-collapse-item>
 </el-collapse>
 </div>
@@ -66,11 +44,11 @@
     <!--  起底价格-->
        <div class="skin-j-prop">
            <!-- 过渡符号 -->
-       <div class="skin-g-d"><input class="skin-input-o" type="text" value="130" disabled =“disabled”></div>
+       <div class="skin-g-d"><input class="skin-input-o" type="text"  min="0" value="0" disabled =“disabled”></div>
           <!-- 过渡符号 -->
        <div class="skin-g-d">———</div>
        <!-- 输入价格 -->
-       <div class="skin-s-r"><input  class="skin-input-oy" type="number" name="" id=""></div>
+       <div class="skin-s-r"><input onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}"  @keydown.enter="inputFun" class="skin-input-oy" type="number"></div>
        </div>
   </el-collapse-item>
 </el-collapse>
@@ -90,7 +68,7 @@
         <!-- 产品总计件 -->
         <div class="skin-first-piece">
             <p>
-              <span>64</span>
+              <span>{{this.countNum}}</span>
               件商品
             </p>
         </div>
@@ -99,12 +77,12 @@
         <div class="skin-first-think">
             <!-- 排序插件 -->
             <template>
-              <el-select v-model="value" placeholder="按照上市时间">
+              <el-select  id='changepai' v-model="value">
                 <el-option
                   v-for="item in options"
                   :key="item.value"
                   :label="item.label"
-                  :value="item.value">
+                  :value="item.value" @click="aa()">
                 </el-option>
               </el-select>
             </template>
@@ -113,25 +91,25 @@
 
       <!-- 列表内容部分 -->
       <div class="skin-contnent-ri">
-        <ul class="skin-cont-rilists clearfix">
-            <li class="skin-cont-rilist">
+        <ul  class="skin-cont-rilists clearfix">
+            <li v-for="(item) in list"  :key="item.id"  class="skin-cont-rilist">
               <!-- 头部图片内容 -->
-               <div class="skin-chudo">
-                  <img src="../img/6.jpg">
+               <div class="skin-chudo" >
+                    <img :src="api + item.g_img.split(',')[0]">
                 </div>
                 <!-- 下部分文字内容 -->
                 <div class="skin-bu-cone">
                   <!-- 毫升ml -->
                   <div class="skin-content-Milliliter">
-                    <p>400ml</p>
+                    <p>{{item.g_spec}}ml</p>
                   </div>
                   <!-- 名称 -->
                   <p class="skin-goods-tit">
-                    <a>新清滢柔肤水</a>
+                    <a>{{item.g_title}}</a>
                   </p>
                   <!-- 英文名 -->
                   <p class="skin-goods-introudce">
-                      <a>Tonique Confort</a>
+                      <a>{{item.g_enTitle}}</a>
                   </p>
                   <!-- 五星好评和价格 -->
                   <div class="skin-row">
@@ -143,15 +121,15 @@
                     <p class="skin-row-zhong"></p>
                     <!-- 价格 -->
                     <div class="skin-list-jiage">
-                        <span>¥420</span>
+                        <span>¥{{item.g_price}}</span>
                     </div>
                   </div>
                   <div class="skin-con-ribtn">
-                    <p class="skin-bto-hover">立即购买</p>
-                    <p class="skin-bto-ljxq">了解详情</p>
+                    <p class="skin-bto-hover" @click="OpenWinPop(item.g_id)">立即购买</p>
+                   <router-link class="skin-bto-ljxq" :to="{path: '/detail', query: {id: item.g_id}}" >了解详情</router-link>
                   </div>
                   <!-- 响应式按钮 -->
-                  <div class="skin-b-gshop">立即购买</div>
+                  <p class="skin-b-gshop" @click="OpenWinPop(item.g_id)">立即购买</p>
                 </div>
             </li>
         </ul>
@@ -164,7 +142,7 @@
         <ul class="skin-ul-li">
           <li @click="Telescopic()">返回</li>
           <li class="skin-ul">产品筛选</li>
-          <li class="skin-fr">结果<span>(<span>8</span>)</span></li>
+          <li class="skin-fr">结果<span>(<span></span>)</span></li>
         </ul>
       </div>
       <!-- 条件筛选 -->
@@ -173,7 +151,7 @@
           <el-collapse-item title="产品筛选" name="1">
             <div class="skin-el-skin">
               <el-checkbox-group v-model="checkboxGroup1">
-                <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox-button>
+                <el-checkbox-button v-for="city in cityOptions" :label="city" :key="city">{{city}}</el-checkbox-button>
               </el-checkbox-group>
             </div>
           </el-collapse-item>
@@ -202,18 +180,24 @@
         </div>
       </div>
     </div>
+    <indexDelCopy></indexDelCopy>
   </div>
 
 </template>
 <script>
-const cityOptions = ['隔离防晒', '卸妆乳', '卸妆&洁面', '面膜', '精华', '美容液/爽肤水', '乳液', '眼霜', '面霜', '晚霜', '修容', '眼部产品']
+import indexDelCopy from '../../Popup/indexDelCopy'
 const cityOptions2 = ['奢宠抗老', '去黑眼圈', '淡斑焕白', '润泽保湿', '深层洁净', '修护肌底', '男士护肤', '紧致抚纹']
 export default{
     data () {
         return {
+            api: 'http://192.168.97.254:3000/',
+            inputValue: '',
+            isClicked: [],
             checkboxGroup1: [],
             checkboxGroup2: [],
-            cities: cityOptions,
+            allArr: [],
+            datas: '',
+            cityOptions: ['隔离防晒', '卸妆乳', '卸妆&洁面', '面膜', '精华', '美容液/爽肤水', '乳液', '眼霜', '面霜', '晚霜', '修容', '眼部产品'],
             cities2: cityOptions2,
             activeNames: ['1', '2', '3'],
             checkList: [],
@@ -234,10 +218,65 @@ export default{
                 value: '选项5',
                 label: '人气推荐'
             }],
-            value: ''
+            value: '按上市排序时间'
         }
     },
+    components: {
+        indexDelCopy
+    },
+    computed: {
+        list () {
+            return this.$store.state.goods.goodlist
+        },
+        countNum () {
+            return this.$store.state.goods.goodlist.length
+        }
+    },
+    mounted () {
+        this.$store.dispatch('getgoodslist')
+        this.aa()
+        this.allArr = this.cityOptions.concat(this.cities2)
+        this.allArr.forEach((item, index) => {
+            this.isClicked.push(false)
+        })
+    },
     methods: {
+        // 输入价格数据渲染
+        inputFun (e) {
+            // e.target 指向了dom元素
+            let data = this.inputValue = e.target.value
+            // console.log(data)
+            this.$store.dispatch('setPrice', data)
+        },
+        // 选中排序方式进行列表渲染
+        aa () {
+            let _this = this
+            let item = document.querySelectorAll('.el-select-dropdown__item span')
+            for (var i = 0; i < item.length; i++) {
+                item[i].onclick = e => {
+                    let target = e.target
+                    if (target.nodeName === 'SPAN') {
+                        this.value = target.innerText
+                        if (this.value === '按上市排序时间') {
+                            _this.$store.dispatch('getgoodslist')
+                        } if (this.value === '按销量排序') {
+                            _this.$store.dispatch('getSales')
+                        } if (this.value === '按照价格从高到低') {
+                            _this.$store.dispatch('getHigprice')
+                        } if (this.value === '按照价格从低到高') {
+                            _this.$store.dispatch('getLowprice')
+                        } if (this.value === '人气推荐') {
+                            _this.$store.dispatch('getgoodslist')
+                        }
+                    }
+                }
+            }
+        },
+        // 产品筛选进行产品渲染
+        OpenWinPop (id) {
+            this.$store.commit('OpenWinPop', id)
+            this.$store.dispatch('getGoodsMessages')
+        },
         handleChange (val) {
         },
         Telescopic () {
@@ -256,7 +295,6 @@ export default{
                 teleslid.classList.remove('on')
             } else {
                 teleslid.classList.add('on')
-                // teleslid.style.display = 'block'
                 teleslid.style.right = 0
             }
         },
@@ -267,10 +305,19 @@ export default{
                     elco[i].classList.remove('is-checked')
                 }
             }
+        },
+        ddd (index) {
+            this.isClicked.splice(index, 1, !this.isClicked[index])
+            // console.log(this.isClicked)
+            let screen = []
+            screen = this.allArr.filter((item, index) => {
+                return this.isClicked[index]
+            })
+            // console.log(screen)
+            this.$store.dispatch('setGoods', screen)
         }
     }
 }
 </script>
-
 <style lang='less'  >
 </style>
