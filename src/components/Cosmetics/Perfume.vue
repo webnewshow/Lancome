@@ -5,19 +5,19 @@
 
        <!-- head 图片 -->
        <div class="skin-b-img">
-         <img src="./img/5.jpg" alt="">
+         <img src="./img/7.jpg" alt="">
        </div>
 
        <!--筛选导航  -->
        <ul class="skin-head">
          <li><a><router-link to='/'>首页</router-link></a></li>
-         <li><a><router-link to='/SkinCare'>彩妆</router-link></a></li>
+         <li><a><router-link to='/Perfume'>香水</router-link></a></li>
        </ul>
 
        <!-- 图片标题 -->
        <div class="skin-t-h">
-         <h1>彩妆</h1>
-         <h6>场合瞬息万变  开启你的百变妆容</h6>
+         <h1>香水</h1>
+         <h6>探悉愉悦本源   轻嗅坠入快乐漩涡</h6>
        </div>
      </div>
 
@@ -29,7 +29,7 @@
   </div>
 </template>
 <script>
-import ctnttont from './Coscontent/index.vue'
+import ctnttont from './Perfume/index.vue'
 export default {
     components: {
         ctnttont

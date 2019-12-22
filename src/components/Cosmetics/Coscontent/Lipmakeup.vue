@@ -4,22 +4,29 @@
     <div class="skin-cen-fl">
       <!-- 左边第一模块 -->
       <div class="skin-text-l">
+        <div class="skin-dao-hang">
+          <ul class="skin-headd">
+            <li><a><router-link to="/">首页</router-link></a></li>
+             <li><a><router-link to="/Cosmetics">彩妆</router-link></a></li>
+              <li><a>唇妆</a></li>
+          </ul>
+             </div>
+           <!-- 第二模块 三大类 -->
+          <div class="skin-text-l">
         <div class="skin-f-f">
-            <p class="skin-f-fu">彩妆</p>
+            <p class="skin-f-fu">唇妆</p>
         </div>
            <!-- 第二模块 三大类 -->
          <div class="skin-f-th">
-            <p class="skin-f-fh"><router-link to="Makeup">底妆</router-link></p>
+            <p class="skin-f-fh">唇膏</p>
         </div>
         <div class="skin-f-th">
-            <p class="skin-f-fh"><router-link to="Lipmakeup">唇妆</router-link></p>
-        </div>
-        <div class="skin-f-th">
-            <p class="skin-f-fh"><router-link to="Eyemakeup">眼妆</router-link></p>
+            <p class="skin-f-fh">唇釉</p>
         </div>
         <div class="skin-element skin-el-deep">
+          </div>
       <el-collapse v-model="activeNames" @change="handleChange">
-        <el-collapse-item class="skin-s-x" title="产品筛选" name="1">
+        <el-collapse-item class="skin-s-x" title="妆效" name="1">
           <!-- <p>卸妆乳</p> -->
            <el-checkbox-group class="skin-h-h" v-model="checkList">
               <div v-for="(item,index) in cityOptions" :key="item">
@@ -30,7 +37,7 @@
       </el-collapse>
   <!--  护肤需求 -->
   <el-collapse accordion>
-  <el-collapse-item title="妆效" name="2">
+  <el-collapse-item title="功效" name="2">
     <div v-for="(item, index) in cities2" :key="item" >
       <el-checkbox @change="ddd(index + cityOptions.length)" :label="item"></el-checkbox>
     </div>
@@ -38,9 +45,10 @@
 </el-collapse>
 </div>
 <!-- 价格 -->
+<div class="skin-chuan-tou">
 <el-collapse accordion>
   <el-collapse-item>
-    <template slot="title"> 价格 </template>
+    <template slot="title" class="skin-jiage"> 价格 </template>
     <!--  起底价格-->
        <div class="skin-j-prop">
            <!-- 过渡符号 -->
@@ -52,6 +60,7 @@
        </div>
   </el-collapse-item>
 </el-collapse>
+</div>
         <div>
         </div>
       </div>
@@ -186,18 +195,18 @@
 </template>
 <script>
 import indexDelCopy from '../../Popup/indexDelCopy'
-const cityOptions2 = ['水润', '光泽感', '卷翘', '纤长', '浓密', '丝亮']
+const cityOptions2 = ['水润']
 export default{
     data () {
         return {
             api: 'http://192.168.97.254:3000/',
-            inputValue: '',
+            inputValue: [],
             isClicked: [],
             checkboxGroup1: [],
             checkboxGroup2: [],
             allArr: [],
             datas: '',
-            cityOptions: ['全部套装', '妆前乳', '气垫霜', '粉底', '腮红', '唇膏', '唇釉', '睫毛膏', '眼线笔', '遮瑕', '散粉', '蜜粉'],
+            cityOptions: ['全部套装', '妆前乳', '气垫霜', '粉底', '腮红', '唇膏', '唇釉', '遮瑕', '散粉', '蜜粉'],
             cities2: cityOptions2,
             activeNames: ['1', '2', '3'],
             checkList: [],
@@ -239,8 +248,21 @@ export default{
         this.allArr.forEach((item, index) => {
             this.isClicked.push(false)
         })
+        this.gettype()
     },
     methods: {
+        // 根据点击类型进行数据渲染
+        gettype () {
+            let _this = this
+            let getdata = document.querySelectorAll('.skin-f-fh')
+            for (var i = 0; i < getdata.length; i++) {
+                getdata[i].onclick = function (e) {
+                    let target = e.target
+                    let value = target.innerText
+                    _this.$store.dispatch('setType', value)
+                }
+            }
+        },
         // 输入价格数据渲染
         inputFun (e) {
             // e.target 指向了dom元素
@@ -320,4 +342,7 @@ export default{
 }
 </script>
 <style lang='less'  >
+@import '../../../css/public.less';
+@import '../css/index.less';
+@import '../css/fenlei.less';
 </style>

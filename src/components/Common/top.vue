@@ -67,7 +67,7 @@
                 </li>
                 <li class="skin-nav-lists ">
                     <div style='position:relative;'>
-                        <div class='help'>彩妆</div>
+                        <div class='help'><router-link to='/Cosmetics'>彩妆</router-link></div>
                     </div>
                     <div class="skin-nav-con">
                         <div class="skin-navcz-conLeft fl">
@@ -112,7 +112,7 @@
                 </li>
                 <li class="skin-nav-lists ">
                     <div style='position:relative;'>
-                        <div class='help'>香水</div>
+                        <div class='help'><router-link to='/Perfume'>香水</router-link></div>
                     </div>
                     <div class="skin-nav-con">
                         <div class="skin-nav-conLeft fl">
@@ -138,7 +138,7 @@
                     </div>
                 </li>
                 <li class="skin-nav-lists ">
-                    <div class='help2'>菁纯奢宠</div>
+                    <div class='help2'><router-link to='/Pureluxury'>菁纯奢宠</router-link></div>
                 </li>
                 <li class="skin-nav-lists ">
                     <div style='position:relative;'>

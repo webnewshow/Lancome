@@ -5,17 +5,11 @@
       <!-- 左边第一模块 -->
       <div class="skin-text-l">
         <div class="skin-f-f">
-            <p class="skin-f-fu">彩妆</p>
+            <p class="skin-f-fu">香水</p>
         </div>
            <!-- 第二模块 三大类 -->
          <div class="skin-f-th">
-            <p class="skin-f-fh"><router-link to="Makeup">底妆</router-link></p>
-        </div>
-        <div class="skin-f-th">
-            <p class="skin-f-fh"><router-link to="Lipmakeup">唇妆</router-link></p>
-        </div>
-        <div class="skin-f-th">
-            <p class="skin-f-fh"><router-link to="Eyemakeup">眼妆</router-link></p>
+            <p class="skin-f-fh"><router-link to="Ladyperfume">女士香水</router-link></p>
         </div>
         <div class="skin-element skin-el-deep">
       <el-collapse v-model="activeNames" @change="handleChange">
@@ -28,14 +22,6 @@
           </el-checkbox-group>
         </el-collapse-item>
       </el-collapse>
-  <!--  护肤需求 -->
-  <el-collapse accordion>
-  <el-collapse-item title="妆效" name="2">
-    <div v-for="(item, index) in cities2" :key="item" >
-      <el-checkbox @change="ddd(index + cityOptions.length)" :label="item"></el-checkbox>
-    </div>
-  </el-collapse-item>
-</el-collapse>
 </div>
 <!-- 价格 -->
 <el-collapse accordion>
@@ -197,7 +183,7 @@ export default{
             checkboxGroup2: [],
             allArr: [],
             datas: '',
-            cityOptions: ['全部套装', '妆前乳', '气垫霜', '粉底', '腮红', '唇膏', '唇釉', '睫毛膏', '眼线笔', '遮瑕', '散粉', '蜜粉'],
+            cityOptions: ['香水'],
             cities2: cityOptions2,
             activeNames: ['1', '2', '3'],
             checkList: [],

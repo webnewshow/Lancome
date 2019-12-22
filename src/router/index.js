@@ -34,13 +34,18 @@ import product07 from '../components/Member_Center/productVue/product07'
 import product08 from '../components/Member_Center/productVue/product08'
 import product09 from '../components/Member_Center/productVue/product09'
 import Settlement from '../components/Member_Center/Settlement'
-// import series from '../components/Cosmetics/series'
 import Cosmetics from '../components/Cosmetics/Cosmetics'
 import SkinNeeds from '../components/Cosmetics/content/SkinNeeds'
 import joinUS from 'components/index/website_detaile/join.vue'
 import Landingpage from 'components/index/website_detaile/landingpage.vue'
 import KimpurePage from 'components/index/website_detaile/kimpure-page.vue'
 import Search from 'components/serch/search.vue'
+import Makeup from '../components/Cosmetics/Coscontent/Makeup.vue'
+import Lipmakeup from '../components/Cosmetics/Coscontent/Lipmakeup.vue'
+import Eyemakeup from '../components/Cosmetics/Coscontent/Eyemakeup.vue'
+import Perfume from '../components/Cosmetics/Perfume.vue'
+import Ladyperfume from '../components/Cosmetics/Perfume/Ladyperfume.vue'
+import Pureluxury from '../components/Cosmetics/Pureluxury.vue'
 Vue.use(Router)
 export default new Router({
     mode: 'history',
@@ -212,7 +217,30 @@ export default new Router({
             path: '/Cosmetics',
             name: 'Cosmetics',
             component: Cosmetics
-
+        }, {
+            path: '/Makeup',
+            name: Makeup,
+            component: Makeup
+        }, {
+            path: '/Lipmakeup',
+            name: Lipmakeup,
+            component: Lipmakeup
+        }, {
+            path: '/Eyemakeup',
+            name: Eyemakeup,
+            component: Eyemakeup
+        }, {
+            path: '/Perfume',
+            name: Perfume,
+            component: Perfume
+        }, {
+            path: '/Ladyperfume',
+            name: Ladyperfume,
+            component: Ladyperfume
+        }, {
+            path: '/Pureluxury',
+            name: Pureluxury,
+            component: Pureluxury
         }
     ]
 })
