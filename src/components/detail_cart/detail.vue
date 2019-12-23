@@ -6,13 +6,17 @@
               <div class="skin-content-container clearfix">
                   <div class="fl skin-deNav-topLeft">
                       <div class="skin-topLeft-img">
-                          <img :src="this.data.img1" alt="">
+                          <img
+                          :src="'http://192.168.97.254:3000/'+this.degoodslists.g_img.split(',')[0]" alt="">
                       </div>
                       <span>{{this.degoodslists.g_title}}</span>
                   </div>
                   <div class="fl skin-deNav-topRight clearfix">
                       <div class="skin-deNav-dropDown fl">
-                          <el-select v-model="label" placeholder="请选择">
+                          <el-select
+                          v-model="label"
+                          @change="selectgetvalue"
+                          placeholder="请选择">
                                 <el-option
                                 v-for="item in options"
                                 :key="item.value"
@@ -22,7 +26,10 @@
                           </el-select>
                       </div>
                       <div class="skin-deNav-doBtn fl clearfix">
-                          <a class="skin-bto-hover skin-deNav-doBtnL fl">
+                          <a
+                          class="skin-bto-hover skin-deNav-doBtnL fl"
+                          @click="addToshop"
+                          >
                               <span class="skin-deNav-proPri">￥{{this.degoodslists.g_price}}</span>
                               <span>加入购物袋</span>
                           </a>
@@ -70,7 +77,10 @@
                           <span class="fr">数量 :</span>
                       </div>
                       <div class="skin-b-btnbox fl clearfix">
-                          <a class="skin-bto fl skin-b-inshopbtn">加入购物袋</a>
+                          <a
+                          class="skin-bto fl skin-b-inshopbtn"
+                          @click="addToshop"
+                          >加入购物袋</a>
                           <a class="skin-bto fl skin-b-inshopbtn">立即购买</a>
                       </div>
                   </div>
@@ -617,7 +627,6 @@
 <script>
 import Swiper from 'swiper'
 import Top from '../Common/top'
-import img1 from './images/2.jpg'
 import goodsCont from '../../components/Popup/indexDel'
 export default {
     data () {
@@ -626,6 +635,7 @@ export default {
             label: 1,
             value: 5,
             valueP: 5,
+            selectValue: '',
             colores: ['#000', '#000', '#000'],
             vText: '10条评论',
             colors: ['#000', '#000', '#000'],
@@ -636,23 +646,23 @@ export default {
                 buyTime: '2019-9-29 16:26:33',
                 seller: '兰小蔻',
                 replyTime: '2019-10-7 11:25:50',
-                usefulNum: 3,
-                img1: img1
+                usefulNum: 3
             },
             options: [{
-                label: 1
-            },
-            {
-                label: 2
-            },
-            {
-                label: 3
-            },
-            {
-                label: 4
-            },
-            {
-                label: 5
+                value: '1',
+                label: '1'
+            }, {
+                value: '2',
+                label: '2'
+            }, {
+                value: '3',
+                label: '3'
+            }, {
+                value: '4',
+                label: '4'
+            }, {
+                value: '5',
+                label: '5'
             }],
             deId: '',
             degoodslists: '',
@@ -729,6 +739,8 @@ export default {
             let searchParams = new URLSearchParams(search)
             let searchId = searchParams.get('id')
             this.deId = searchId || this.urlId
+            console.log(this.deId)
+            this.$store.dispatch('getgoodsfordetail')
             let dgoodslist = this.$store.state.getDetail.gooddelist
             if (dgoodslist != '') {
                 for (let xq of dgoodslist) {
@@ -758,6 +770,7 @@ export default {
             this.$store.dispatch('getgoodsfordetail')
             let likegoods = this.$store.state.getDetail.gooddelist
             this.likegoods = likegoods
+            return this.likegoods
         },
         // 获取四个元素距离顶部的距离事件
         getDomHeight () {
@@ -771,8 +784,12 @@ export default {
             let navactive = document.querySelectorAll('.skin-topNav-proListItem')
             // 获取滚动距离
             let scrolltop = document.documentElement.scrollTop || document.body.scrollTop
+            // 元素距离dom顶部的距离
+            let deOffsetHeight1 = deOffsetHeight.offsetTop
+            let dpOffsetHeight1 = dpOffsetHeight.offsetTop
+            let plOffsetHeight1 = plOffsetHeight.offsetTop
             // 两个顶部的show
-            let OffsetHeightTop1 = deOffsetHeight.offsetTop - scrolltop
+            let OffsetHeightTop1 = deOffsetHeight1 - scrolltop
             if (OffsetHeightTop1 <= 135) {
                 maintop.style.display = 'none'
                 deNav.style.display = 'block'
@@ -783,7 +800,7 @@ export default {
                 navactive[0].classList.remove('isActive')
             }
             // 猜你喜欢以及搭配
-            let OffsetHeightTop2 = dpOffsetHeight.offsetTop - scrolltop
+            let OffsetHeightTop2 = dpOffsetHeight1 - scrolltop
             if (OffsetHeightTop2 <= 135) {
                 navactive[0].classList.remove('isActive')
                 navactive[1].classList.add('isActive')
@@ -791,7 +808,7 @@ export default {
                 navactive[1].classList.remove('isActive')
             }
             // 评论
-            let OffsetHeightTop3 = plOffsetHeight.offsetTop - scrolltop
+            let OffsetHeightTop3 = plOffsetHeight1 - scrolltop
             if (OffsetHeightTop3 <= 135) {
                 navactive[1].classList.remove('isActive')
                 navactive[3].classList.add('isActive')
@@ -815,6 +832,16 @@ export default {
                     })
                 }
             }
+        },
+        // 获取选择的数量value
+        selectgetvalue (value) {
+            this.selectValue = value
+        },
+        // 点击加入购物袋
+        addToshop () {
+            // 把获得的数量赋值
+            this.degoodslists.g_num = this.selectValue || 1
+            this.$store.commit('addselectlist', this.degoodslists)
         }
     },
     mounted () {
@@ -825,10 +852,9 @@ export default {
         this.initSwiper2()
         // 获取id对应的数据
         this.getdegoods()
+        console.log(this.degoodslists)
         // 猜你喜欢商品
         this.getlikegoods()
-        this.getDomHeight()
-        console.log(this.likegoods)
         // 屏幕滚动事件
         window.addEventListener('scroll', this.getDomHeight)
         // 详情导航栏点击事件

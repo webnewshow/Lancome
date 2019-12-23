@@ -24,7 +24,8 @@
                                 <ul class="clearfix">
                                     <li class="skin-user-name clearfix">
                                         <p>欢迎
-                                            <span class="skin-name">{{this.userdata[0].u_name}}</span>
+                                            <!-- <span class="skin-name">{{this.userdata[0].u_name}}</span> -->
+                                            <span class="skin-name">{{this.userName}}</span>
                                         </p>
                                         <a href="#">退出登录</a>
                                     </li>
@@ -54,9 +55,9 @@
                                         </router-link>
                                     </li>
                                     <li class="skin-menu-item">
-                                        <a href="#">会员权益
+                                         <router-link to="/MemberCenter">会员权益
                                             <span class="icon Rightarrow fr"></span>
-                                        </a>
+                                        </router-link>
                                     </li>
                                     <li class="skin-menu-item">
                                         <router-link to="/user/Collection">我的收藏夹
@@ -198,7 +199,8 @@ export default {
             }
         },
         getuserdata () {
-            this.$store.dispatch('getUserData')
+            // this.$store.dispatch('getUserData')
+            console.log(111)
             let userdata = this.$store.state.userData.userdatalist
             if (userdata != '') {
                 this.userdata = userdata
@@ -211,6 +213,7 @@ export default {
     mounted () {
         this.getInfo()
         this.getuserdata()
+        console.log(this.userdata)
     }
 }
 </script>

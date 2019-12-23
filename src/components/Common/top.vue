@@ -316,13 +316,17 @@
                         </div>
                     </div>
                 </li>
-                <li class="skin-nav-lists aa">
-                    <div style='position:relative;'><div class='help user' @click="login">
+                <li class="skin-nav-lists">
+                    <div style='position:relative;'>
+                        <div
+                        class='help user' @click="login"
+                        >
                         <i class='el-icon-s-custom font-24'></i>
                         <span>欢迎:{{this.userName}}
+                        <!-- <span>欢迎:dafdfda -->
                         </span>
                         </div></div>
-                    <div class="skin-nav-con bb"  id="GuanWang">
+                    <div class="skin-nav-con"  id="GuanWang">
                         <div  class="login-box"> <login a="1234" :toshow="toshow"></login></div>
                         <div class="skin-login-content on">
                             <!-- <div class="user-name"><span>欢迎 </span>{{this.userName}}</div> -->
@@ -337,7 +341,7 @@
                                 <router-link to="/user/order">我的订单</router-link>
                                 </li>
                                 <li class="info-item">
-                                <router-link to="/user/personal">会员权益</router-link>
+                                <router-link to="/MemberCenter">会员权益</router-link>
                                 </li>
                                 <li class="info-item">
                                 <router-link to="/user/Collection">我的收藏夹</router-link>
@@ -356,7 +360,7 @@
         <div class="dialog-login-register">
             <!--弹出层  -->
             <el-dialog :visible.sync="dialogVisible">
-                <login></login>
+                <login :toshow="toshow"></login>
                 <span slot="footer" class="dialog-footer">
                 </span>
             </el-dialog>
@@ -387,7 +391,8 @@ export default {
             gNum: 2,
             shopgoods: '',
             godelits: '',
-            userName: ''
+            userName: '',
+            userdata: ''
         }
     },
     components: {
@@ -397,8 +402,7 @@ export default {
     methods: {
         toshow (msg) {
             this.dialogVisible = false
-            console.log(4545)
-            console.log(this.dialogVisible)
+            console.log(111)
         },
         login () {
             let token = window.localStorage.getItem('token')
@@ -477,6 +481,16 @@ export default {
                 this.shopgoods = JSON.parse(window.localStorage.getItem('selectInfo'))
             }
             return this.shopgoods
+        },
+        getuserdata () {
+            // this.$store.dispatch('getUserData')
+            let userdata = this.$store.state.userData.userdatalist
+            console.log(userdata)
+            if (userdata != '') {
+                this.userdata = userdata
+            } else {
+                this.userdata = JSON.parse(window.localStorage.getItem('userInfo'))
+            }
         }
     },
     mounted () {
@@ -484,6 +498,8 @@ export default {
         this.searchfun()
         window.addEventListener('scroll', this.getscrool)
         this.shopcartgoods()
+        this.getuserdata()
+        console.log(this.$store)
     },
     computed: {
         pritotal () {
@@ -492,6 +508,9 @@ export default {
                 toPri += ite.g_price * ite.g_num
             }
             return toPri
+        },
+        user () {
+            return this.$store.state.userData.userdatalist
         }
     }
 }

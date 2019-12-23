@@ -207,7 +207,7 @@ export default {
                     this.loding = !this.loding
                     let data = {
                         email: this.ruleForm.remail,
-                        pwd: this.$md5(this.ruleForm.rpwd),
+                        pwd: this.ruleForm.rpwd,
                         code: this.ruleForm.code,
                         imgcode: this.ruleForm.imgcode
                     }
@@ -220,7 +220,9 @@ export default {
                             code: data.code
                         }
                     }).then((res) => {
-                        if (res.status === 200) {
+                        console.log(res)
+                        console.log(222)
+                        if (res.data.status === 200) {
                             this.loding = !this.loding
                             this.$message({
                                 message: '注册成功',
@@ -234,6 +236,7 @@ export default {
                             })
                             this.loding = !this.loding
                         } else {
+                            console.log(333)
                             this.$message({
                                 message: '注册失败',
                                 center: true,
@@ -244,7 +247,7 @@ export default {
                                     this.change()
                                 }
                             })
-                            this.loding = !this.loding
+                            // this.loding = !this.loding
                         }
                     })
                 } else {
@@ -291,6 +294,7 @@ export default {
                                 // 关闭提示信息的回调
                                 onClose: () => {
                                     this.change()
+                                    // this.$store.dispatch('getUserData')
                                     window.location.href = '/user'
                                 }
                             })
@@ -335,22 +339,21 @@ export default {
                             duration: 2000,
                             // 关闭提示信息的回调
                             onClose: () => {
-                                this.change()
+                                // _this.change()
+                            }
+                        })
+                    } else {
+                        _this.$message({
+                            message: '验证码发送失败',
+                            center: true,
+                            type: 'error',
+                            duration: 2000,
+                            // 关闭提示信息的回调
+                            onClose: () => {
+                                // _this.change()
                             }
                         })
                     }
-                }).catch((err) => {
-                    console.log(err)
-                    _this.$message({
-                        message: '验证码发送失败',
-                        center: true,
-                        type: 'error',
-                        duration: 2000,
-                        // 关闭提示信息的回调
-                        onClose: () => {
-                            this.change()
-                        }
-                    })
                 })
             }
         },

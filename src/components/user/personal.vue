@@ -9,17 +9,19 @@
             <div class="skin-personal-info">
                 <div class="skin-info-box">
                     <div class="skin-info-left">
-                        <ul class="skin-personal-list">
+                        <ul
+                        class="skin-personal-list"
+                        >
                             <li class="skin-personal-item">
                                 <h4 class="user">用户名</h4>
-                                <span class="name">{{this.userInfo[0].u_name}}</span>
-                            </li>
-                              <li class="skin-personal-item">
-                                <h4 class="user">邮箱地址: {{this.userInfo[0].u_email}}</h4>
                                 <span class="name"></span>
                             </li>
                               <li class="skin-personal-item">
-                                <h4 class="user">手机号码: {{this.userInfo[0].u_phone}}</h4>
+                                <h4 class="user">邮箱地址: {{this.userName}}</h4>
+                                <span class="name"></span>
+                            </li>
+                              <li class="skin-personal-item">
+                                <h4 class="user">手机号码: </h4>
                                 <span class="name"></span>
                             </li>
                               <li class="skin-personal-item">
@@ -244,6 +246,7 @@ export default {
         this.showInfo()
         this.getInfo()
         this.getUserInfo()
+        console.log(this.userInfo)
     }
 }
 </script>

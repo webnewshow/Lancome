@@ -16,11 +16,11 @@
                     <span>默认地址</span>
               </div>
               <div class="skin-address-content">
-                  <p>{{this.userInfo[0].u_name}}</p>
-                  <p>{{this.userInfo[0].u_address}}</p>
+                  <p>sfd</p>
+                  <p></p>
                   <p>足下</p>
-                  <p>邮编：400000</p>
-                  <p>手机号码：{{this.userInfo[0].u_phone}}</p>
+                  <p>邮编：40564500</p>
+                  <p>手机号码：</p>
               </div>
               <div class="skin-address-edit">
                   <a href="#" @click="dialogVisible1 = true" class="skin-bto-hover bj">编辑</a>
@@ -33,11 +33,11 @@
                     <span>设置默认地址</span>
               </div>
               <div class="skin-address-content">
-                  <p>{{this.userInfo[0].u_name}}</p>
-                  <p>{{this.userInfo[0].u_address}}</p>
+                  <p>{{this.userName}}</p>
+                  <p>454</p>
                   <p>足下</p>
                   <p>邮编：400000</p>
-                  <p>手机号码：{{this.userInfo[0].u_phone}}</p>
+                  <p>手机号码：</p>
               </div>
               <div class="skin-address-edit">
                   <a href="#" @click="dialogVisible1 = true" class="skin-bto-hover bj">编辑</a>
@@ -93,6 +93,8 @@ export default {
     },
     data () {
         return {
+            u_name: '',
+            userName: '',
             dialogVisible: false,
             dialogVisible1: false,
             dialogVisible2: false,
@@ -108,7 +110,7 @@ export default {
             this.changeOption('order')
         },
         getUserInfo () {
-            this.$store.dispatch('getUserData')
+            // this.$store.dispatch('getUserData')
             let userInfo = this.$store.state.userData.userdatalist
             if (userInfo != '') {
                 this.userInfo = userInfo

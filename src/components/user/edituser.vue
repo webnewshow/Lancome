@@ -64,6 +64,7 @@
 export default {
     data () {
         return {
+            options: '',
             ruleForm: {
                 name: ''
             }

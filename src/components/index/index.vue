@@ -15,8 +15,12 @@
                         <img :src="'http://192.168.97.254:3000/' + item.g_img.split(',')[0]">
                         <h4>{{item.g_enTitle}}</h4>
                         <p>{{item.g_title}}</p>
-                        <span>{{item.g_price}}</span>
-                        <div class='skin-bto-hover' @click="OpenWinPop(item.g_id)">立即购买</div>
+                        <span>￥{{item.g_price}}</span>
+                        <!-- <div class='skin-bto-hover' @click="OpenWinPop(item.g_id)">了解详情</div> -->
+                        <router-link
+                        class="skin-bto-hover"
+                        style="text-decoration:none;"
+                        :to="{path: '/detail', query: {id: item.g_id}}">了解详情</router-link>
                     </div>
                 </el-carousel-item>
             </el-carousel>
@@ -34,8 +38,11 @@
                         <img :src="'http://192.168.97.254:3000/' + item.g_img.split(',')[0]">
                         <h4>{{item.g_enTitle}}</h4>
                         <p>{{item.g_title}}</p>
-                        <span>{{item.g_price}}</span>
-                        <button class='skin-bto-hover' @click="OpenWinPop(item.g_id)">立即购买</button>
+                        <span>￥{{item.g_price}}</span>
+                        <router-link
+                        class="skin-bto-hover"
+                        style="text-decoration:none;"
+                        :to="{path: '/detail', query: {id: item.g_id}}">了解详情</router-link>
                 </div>
                 </el-carousel-item>
             </el-carousel>
