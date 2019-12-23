@@ -211,35 +211,27 @@ export default new Router({
             }]
         }, {
             path: '/Settlement',
-            name: Settlement,
             component: Settlement
         }, {
             path: '/Cosmetics',
-            name: 'Cosmetics',
             component: Cosmetics
         }, {
             path: '/Makeup',
-            name: Makeup,
             component: Makeup
         }, {
             path: '/Lipmakeup',
-            name: Lipmakeup,
             component: Lipmakeup
         }, {
             path: '/Eyemakeup',
-            name: Eyemakeup,
             component: Eyemakeup
         }, {
             path: '/Perfume',
-            name: Perfume,
             component: Perfume
         }, {
             path: '/Ladyperfume',
-            name: Ladyperfume,
             component: Ladyperfume
         }, {
             path: '/Pureluxury',
-            name: Pureluxury,
             component: Pureluxury
         }
     ]

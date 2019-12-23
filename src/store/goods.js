@@ -1,15 +1,19 @@
 import axios from 'axios'
 let state = {
-    goodlist: []
+    goodlist: [],
+    clinckdata: ''
 }
 let mutations = {
     changgoodslist (state, goodlist) {
+        state.goodlist = goodlist
+    },
+    getclinckdata (state, goodlist) {
         state.goodlist = goodlist
     }
 }
 let actions = {
     getgoodslist (aa) {
-        let state = 1
+        let state = '已上架'
         axios({
             method: 'get',
             url: 'http://192.168.97.254:3000/getgoodstate',
@@ -80,7 +84,6 @@ let actions = {
     },
     // 根据产品类型进行数据渲染
     setType (aa, data) {
-        console.log(data)
         axios({
             method: 'get',
             url: 'http://192.168.97.254:3000/setType',

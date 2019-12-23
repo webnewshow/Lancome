@@ -108,7 +108,7 @@
                   <div class="skin-row">
                     <!-- 星星 -->
                     <div>
-                      <img src="/img/3.png">
+                      <img src="./img/3.png">
                     </div>
                     <!-- 竖线 -->
                     <p class="skin-row-zhong"></p>

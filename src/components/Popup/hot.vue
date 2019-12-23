@@ -156,6 +156,9 @@ export default {
     },
     mounted () {
         window.addEventListener('scroll', this.toUpDown)
+    },
+    destroyed () {
+        window.removeEventListener('scroll', this.toUpDown)
     }
 }
 </script>

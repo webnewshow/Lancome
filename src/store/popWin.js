@@ -19,7 +19,6 @@ let mutations = {
         }
     },
     OpenMessages (state, data) {
-        console.log(data.data.data[0])
         state.openWinMessage = data.data.data[0]
     },
     getSrc (state, src) {

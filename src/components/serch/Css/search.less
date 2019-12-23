@@ -37,6 +37,46 @@
        .search-list{
            float:left;
            width:25%;
+           position: relative;
+           &:hover{
+                .skin-liji{
+                    display: block;
+                }
+                .skin-goumai{
+                    display: block;
+                }
+                .search-cover{
+                    display: block;
+                }
+              }
+              .skin-liji{
+                display: none;
+                position:absolute;
+                top:30%;
+                left:50%;
+                margin-left:-50px;
+                z-index: 2;
+               
+            }
+            .skin-goumai{
+                display: none;
+                position:absolute ;
+                top:50%;
+                left:50%;
+                margin-left:-50px;
+                z-index: 2;
+                background: #fff;
+                color:#000;
+            }
+           .search-cover{
+                width:100%;
+                height:290px;
+                position: absolute;
+                background: #fff;
+                opacity: 0.5;
+                z-index: 1;
+                display: none;
+            }
            img{
                height:290px;
                width:100%;

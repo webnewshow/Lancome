@@ -45,14 +45,14 @@
                                 </ul>
                                 <ul class="skin-nav-detail fr clearfix">
                                     <li class="skin-nav-detaillist">卸妆&洁面</li>
-                                    <li class="skin-nav-detaillist">美容液&爽肤水</li>
+                                    <li class="skin-nav-detaillist">美容液</li>
                                     <li class="skin-nav-detaillist">精华</li>
                                     <li class="skin-nav-detaillist">眼部护理</li>
                                     <li class="skin-nav-detaillist">乳液</li>
                                     <li class="skin-nav-detaillist">面霜</li>
                                     <li class="skin-nav-detaillist">面膜</li>
                                     <li class="skin-nav-detaillist">眼部护理</li>
-                                    <li class="skin-nav-detaillist">防晒隔离</li>
+                                    <li class="skin-nav-detaillist">隔离防晒</li>
                                 </ul>
                             </div>
                         </div>
@@ -355,7 +355,131 @@
                 </li>
             </ul>
         </div>
-        <div class='skin-left-slide' @click="clickLeftSlid()"></div>
+        <div class='skin-left-slide'>
+            <el-collapse  @change="handleChange">
+                <el-collapse-item title="护肤" name="1">
+                    <el-collapse  @change="handleChange">
+                        <el-collapse-item title="产品类型" name="1">
+                            <el-collapse  accordion>
+                                <ul>
+                                    <li>卸妆&洁面</li>
+                                    <li>美容液</li>
+                                    <li>精华</li>
+                                    <li>眼部护理</li>
+                                    <li>乳液</li>
+                                    <li>面霜</li>
+                                    <li>面膜</li>
+                                </ul>
+                            </el-collapse>
+                        </el-collapse-item>
+                        <el-collapse-item title="产品系列" name="2">
+                            <el-collapse  accordion>
+                                <ul>
+                                    <li>清莹清洁系列</li>
+                                    <li>小黑瓶系列</li>
+                                    <li>水份缘系列</li>
+                                    <li>乳液</li>
+                                    <li>面霜</li>
+                                    <li>面膜</li>
+                                </ul>
+                            </el-collapse>
+                        </el-collapse-item>
+                        <el-collapse-item title="肌肤需求" name="3">
+                            <el-collapse  accordion>
+                                <ul>
+                                    <li>清莹清洁系列</li>
+                                    <li>小黑瓶系列</li>
+                                    <li>水份缘系列</li>
+                                    <li>乳液</li>
+                                    <li>面霜</li>
+                                    <li>面膜</li>
+                                </ul>
+                            </el-collapse>
+                        </el-collapse-item>
+                    </el-collapse>
+                </el-collapse-item>
+                <el-collapse-item title="彩妆" name="2">
+                     <el-collapse  @change="handleChange">
+                        <el-collapse-item title="底妆" name="1">
+                            <el-collapse  accordion>
+                                <ul>
+                                    <li>卸妆&洁面</li>
+                                    <li>美容液</li>
+                                    <li>精华</li>
+                                    <li>眼部护理</li>
+                                    <li>乳液</li>
+                                    <li>面霜</li>
+                                    <li>面膜</li>
+                                </ul>
+                            </el-collapse>
+                        </el-collapse-item>
+                        <el-collapse-item title="唇妆" name="2">
+                            <el-collapse  accordion>
+                                <ul>
+                                    <li>清莹清洁系列</li>
+                                    <li>小黑瓶系列</li>
+                                    <li>水份缘系列</li>
+                                    <li>乳液</li>
+                                    <li>面霜</li>
+                                    <li>面膜</li>
+                                </ul>
+                            </el-collapse>
+                        </el-collapse-item>
+                        <el-collapse-item title="眼妆" name="3">
+                            <el-collapse  accordion>
+                                <ul>
+                                    <li>清莹清洁系列</li>
+                                    <li>小黑瓶系列</li>
+                                    <li>水份缘系列</li>
+                                    <li>乳液</li>
+                                    <li>面霜</li>
+                                    <li>面膜</li>
+                                </ul>
+                            </el-collapse>
+                        </el-collapse-item>
+                         <el-collapse-item title="美妆&工具" name="4">
+                            <el-collapse  accordion>
+                                <ul>
+                                    <li>清莹清洁系列</li>
+                                    <li>小黑瓶系列</li>
+                                    <li>水份缘系列</li>
+                                    <li>乳液</li>
+                                    <li>面霜</li>
+                                    <li>面膜</li>
+                                </ul>
+                            </el-collapse>
+                        </el-collapse-item>
+                    </el-collapse>
+                </el-collapse-item>
+                 <el-collapse-item title="香水" name="3">
+                     <el-collapse  @change="handleChange">
+                        <el-collapse-item title="女士香水" name="1">
+                            <el-collapse  accordion>
+                                <ul>
+                                    <li>美丽人生系列</li>
+                                    <li>奇迹系列</li>
+                                    <li>真爱系列</li>
+                                    <li>殿堂系列</li>
+                                </ul>
+                            </el-collapse>
+                        </el-collapse-item>
+                    </el-collapse>
+                </el-collapse-item>
+                <el-collapse-item title="菁纯奢宠" name="4">
+                </el-collapse-item>
+                <el-collapse-item title="畅销榜单" name="5">
+                </el-collapse-item>
+                <el-collapse-item title="会员中心" name="6">
+                </el-collapse-item>
+                <el-collapse-item title="我的账户" name="7">
+                </el-collapse-item>
+                <el-collapse-item title="线上美容顾问" name="8">
+                </el-collapse-item>
+                <el-collapse-item title="订购热线" name="9">
+                </el-collapse-item>
+            </el-collapse>
+            <i class='el-icon-close font-24  skin-slide-close' @click="clickSlidclose()"></i>
+        </div>
         <!-- 登录注册 -->
         <div class="dialog-login-register">
             <!--弹出层  -->
@@ -400,6 +524,18 @@ export default {
         TOP
     },
     methods: {
+        // 点击头部类型获取数据渲染
+        getType () {
+            let _this = this
+            let typedata = document.querySelectorAll('.skin-nav-detaillist')
+            for (var i = 0; i < typedata.length; i++) {
+                typedata[i].onclick = function (e) {
+                    let data = e.target.innerText
+                    _this.$store.state.goods.clinckdata = data
+                    _this.$router.push('/ProType')
+                }
+            }
+        },
         toshow (msg) {
             this.dialogVisible = false
             console.log(111)
@@ -445,12 +581,17 @@ export default {
             }
         },
         clickLeftSlid () {
-            console.log(1111)
+            let leftSlid = document.querySelector('.skin-left-slide')
+            if (leftSlid.classList.contains('on')) {
+                console.log('左边弹出')
+            } else {
+                leftSlid.classList.add('on')
+            }
+        },
+        clickSlidclose () {
             let leftSlid = document.querySelector('.skin-left-slide')
             if (leftSlid.classList.contains('on')) {
                 leftSlid.classList.remove('on')
-            } else {
-                leftSlid.classList.add('on')
             }
         },
         searchfun () {
@@ -482,15 +623,8 @@ export default {
             }
             return this.shopgoods
         },
-        getuserdata () {
-            // this.$store.dispatch('getUserData')
-            let userdata = this.$store.state.userData.userdatalist
-            console.log(userdata)
-            if (userdata != '') {
-                this.userdata = userdata
-            } else {
-                this.userdata = JSON.parse(window.localStorage.getItem('userInfo'))
-            }
+        handleChange (val) {
+            console.log(val)
         }
     },
     mounted () {
@@ -498,8 +632,7 @@ export default {
         this.searchfun()
         window.addEventListener('scroll', this.getscrool)
         this.shopcartgoods()
-        this.getuserdata()
-        console.log(this.$store)
+        this.getType()
     },
     computed: {
         pritotal () {
@@ -1483,6 +1616,14 @@ export default {
             background-color: white;
             left: -80%;
             transition: all 0.5s;
+            padding: 30px;
+            .skin-slide-close{
+                position: absolute;
+                z-index: 9999;
+                top: 0;
+                color: black;
+                right: 0;
+            }
 
             &.on {
                 left: 0;

@@ -13,10 +13,10 @@ let mutations = {
 }
 let actions = {
     getbannerlist (aa) {
-        let state = 1
+        let state = '精华'
         axios({
             method: 'get',
-            url: 'http://192.168.97.254:3000/getgoodstate',
+            url: 'http://192.168.97.254:3000/getbanner',
             params: {
                 state
             }
@@ -25,10 +25,10 @@ let actions = {
         })
     },
     getfreshbannerlilst (aa) {
-        let state = 1
+        let state = '隔离防晒'
         axios({
             method: 'get',
-            url: 'http://192.168.97.227:3000/freshlist',
+            url: 'http://192.168.97.254:3000/getbanner',
             params: {
                 state
             }

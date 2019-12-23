@@ -9,6 +9,8 @@
             <li><a><router-link to="/">首页</router-link></a></li>
              <li><a><router-link to="/SkinCare">护肤</router-link></a></li>
               <li><a>产品类型</a></li>
+              <li  class="skin-x-y" v-show="$store.state.goods.clinckdat != ''"><a>{{$store.state.goods.clinckdata}}</a></li>
+              <li v-show="np != ''"><a>{{np}}</a></li>
           </ul>
              </div>
            <!-- 第二模块 三大类 -->
@@ -21,7 +23,7 @@
             <p class="skin-f-fh">卸妆&洁面</p>
         </div>
         <div class="skin-f-th">
-            <p class="skin-f-fh">美容液&爽肤水</p>
+            <p class="skin-f-fh">大宝sodm</p>
         </div>
         <div class="skin-f-th">
             <p class="skin-f-fh">精华</p>
@@ -36,7 +38,7 @@
             <p class="skin-f-fh">面霜</p>
         </div>
         <div class="skin-f-th">
-            <p class="skin-f-fh">防晒隔离</p>
+            <p class="skin-f-fh">隔离防晒</p>
         </div>
         <div class="skin-element skin-el-deep">
           </div>
@@ -217,11 +219,12 @@ export default{
             api: 'http://192.168.97.254:3000/',
             inputValue: '',
             isClicked: [],
+            np: '',
             checkboxGroup1: [],
             checkboxGroup2: [],
             allArr: [],
             datas: '',
-            cityOptions: ['隔离防晒', '卸妆乳', '卸妆&洁面', '面膜', '精华', '美容液/爽肤水', '乳液', '眼霜', '面霜', '晚霜', '修容', '眼部产品'],
+            cityOptions: ['隔离防晒', '卸妆乳', '卸妆&洁面', '面膜', '精华', '乳液', '眼霜', '面霜', '晚霜', '修容', '眼部产品'],
             cities2: cityOptions2,
             activeNames: ['1', '2', '3'],
             checkList: [],
@@ -263,8 +266,28 @@ export default{
         this.allArr.forEach((item, index) => {
             this.isClicked.push(false)
         })
+        let data = this.$store.state.goods.clinckdata
+        console.log(data)
+        this.$store.dispatch('setType', data)
+        this.gettype()
     },
     methods: {
+        // 根据点击类型进行数据渲染
+        gettype () {
+            let _this = this
+            let getdata = document.querySelectorAll('.skin-f-fh')
+            for (var i = 0; i < getdata.length; i++) {
+                getdata[i].onclick = function (e) {
+                    let target = e.target
+                    let value = target.innerText
+                    _this.np = value
+                    console.log(value)
+                    _this.$store.dispatch('setType', value)
+                    let xianyin = document.querySelector('.skin-x-y')
+                    xianyin.style.display = 'none'
+                }
+            }
+        },
         // 输入价格数据渲染
         inputFun (e) {
             // e.target 指向了dom元素

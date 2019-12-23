@@ -7,8 +7,8 @@
                 <div class='skin-small fl'>
                     <ul>
                         <li class='checked'><img src='./images/15741550653701721_920X920.jpg'></li>
-                        <li><img src='./images/15741550653701721_258X258.jpg'></li>
-                        <li><img src='./images/15741550653701721_460X460.jpg'></li>
+                        <li><img src='./images/1576162546662304_920X920.jpg'></li>
+                        <li><img src='./images/15767599638116550_920X920.jpg'></li>
                     </ul>
                 </div>
                 <div class='fr skin-big' @mouseenter="mouSeenTer" @mousemove="mouseMove" @mouseleave="mouseLeave">
@@ -151,7 +151,8 @@ export default {
                 value: '选项5',
                 label: '5'
             }],
-            number: '1'
+            number: '1',
+            imgLi: []
         }
     },
     methods: {
@@ -240,7 +241,8 @@ export default {
     },
     mounted () {
         this.tabSmallToBig()
-        console.log(this.$store.state.popup.openWinMessage.g_img)
+        this.imgLi = this.$store.state.popup.openWinMessage.g_img
+        // console.log(this.imgLi)
     },
     computed: {
         popMessage () {

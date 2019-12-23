@@ -17,7 +17,7 @@ let mutations = {
     },
     savelikelist (state, serchedlist) {
         state.savelist = serchedlist
-        console.log(serchedlist)
+        // console.log(serchedlist)
     }
 }
 let actions = {
@@ -35,7 +35,7 @@ let actions = {
     },
     // 猜悄喜欢
     getlikedata (aa, data) {
-        console.log(data)
+        // console.log(data)
         axios({
             url: 'http://192.168.97.254:3000/likelist',
             method: 'get',

@@ -33,7 +33,7 @@
         <p class='padding-b-20'>兰蔻菁纯奢宠家族，由内而外自带高光，唤启你的丰润无龄肌。</p>
         <div class='banner3'>
             <el-carousel :interval="4000" type="card">
-                <el-carousel-item v-for="item in bannerListsT" :key="item.g_id">
+                <el-carousel-item v-for="item in bannerListsI" :key="item.g_id">
                 <div class='skin-content-box'>
                         <img :src="'http://192.168.97.254:3000/' + item.g_img.split(',')[0]">
                         <h4>{{item.g_enTitle}}</h4>
@@ -82,10 +82,6 @@ import banner2 from './img/15749550368063976.jpg'
 import banner3 from './img/15756027389813375.jpg'
 import banner4 from './img/15761676208035239.jpg'
 import banner5 from './img/15746083867173309.jpg'
-// import bannerT1 from './img/15761435459634096_920X920.jpg'
-// import bannerT2 from './img/1576162546662304_920X920.jpg'
-// import bannerT3 from './img/15761625523458787_920X920.jpg'
-// import bannerT4 from './img/15761625592305065_920X920.jpg'
 export default {
     components: {
         Popup
@@ -99,7 +95,6 @@ export default {
                 banner4,
                 banner5
             }
-            // bannerListsT2: this.$store.state.popup.openWinMessage.data.data
         }
     },
     methods: {
@@ -109,14 +104,21 @@ export default {
         },
         getbannerlist () {
             this.$store.dispatch('getbannerlist')
+        },
+        getbannerlist2 () {
+            this.$store.dispatch('getfreshbannerlilst')
         }
     },
     mounted () {
         this.getbannerlist()
+        this.getbannerlist2()
     },
     computed: {
         bannerListsT () {
             return this.$store.state.index.bannerlist
+        },
+        bannerListsI () {
+            return this.$store.state.index.freshbannerlilst
         }
     }
 }
