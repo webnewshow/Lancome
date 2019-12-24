@@ -60,6 +60,9 @@ export default {
     },
     mounted () {
         // console.log(this.toshow)
+    },
+    destroyed () {
+        window.removeEventListener('click', this.dialogloginRegister)
     }
 }
 </script>

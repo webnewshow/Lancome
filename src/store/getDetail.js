@@ -21,6 +21,36 @@ let mutations = {
         state.selectLists = newArr
         // 把去重后的数组存入本地
         window.localStorage.setItem('selectInfo', JSON.stringify(state.selectLists))
+    },
+    deldata (state, id) {
+        if (state.selectLists != '') {
+            for (let item of state.selectLists) {
+                let x = state.selectLists.length
+                if (item.g_id == id) {
+                    while (x--) {
+                        if (state.selectLists[x] == item) {
+                            console.log(x)
+                            state.selectLists.splice(x, 1)
+                        }
+                    }
+                    window.localStorage.setItem('selectInfo', JSON.stringify(state.selectLists))
+                }
+            }
+        } else {
+            let selists = window.localStorage.getItem('selectInfo')
+            let sedatalists = JSON.parse(selists)
+            for (let item of sedatalists) {
+                let x = sedatalists.length
+                if (item.g_id == id) {
+                    while (x--) {
+                        if (sedatalists[x] == item) {
+                            sedatalists.splice(x, 1)
+                        }
+                    }
+                    window.localStorage.setItem('selectInfo', JSON.stringify(sedatalists))
+                }
+            }
+        }
     }
 }
 let actions = {

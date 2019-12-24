@@ -283,7 +283,7 @@ export default {
                     }).then((res) => {
                         if (res.data.status === 200) {
                             this.loding = !this.loding
-                            window.localStorage.setItem('info', JSON.stringify(res.data.data.info))
+                            window.localStorage.setItem('userinfo', JSON.stringify(res.data.data.info))
                             window.localStorage.setItem('token', JSON.stringify(res.data.data.token))
                             this.$store.commit('changeInfo', res.data.data)
                             this.$message({
@@ -419,6 +419,10 @@ export default {
         this.dialogloginRegister()
         this.getCode()
         this.submitForm()
+    },
+    destroyed () {
+        // window.removeEventListener('click',this.dialogloginRegister)
+        // this.dialogloginRegister()
     }
 }
 </script>

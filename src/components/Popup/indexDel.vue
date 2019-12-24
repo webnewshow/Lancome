@@ -5,9 +5,9 @@
                 <!-- 缩略图 -->
                 <div class='skin-small'>
                     <ul>
-                        <li class='checked'><img src='./images/15741550653701721_920X920.jpg'></li>
-                        <li><img src='./images/15741550653701721_258X258.jpg'></li>
-                        <li><img src='./images/15741550653701721_460X460.jpg'></li>
+                        <li class='checked'><img :src='this.api + popMessageImg[0]'></li>
+                        <li><img :src='this.api + popMessageImg[1]'></li>
+                        <li><img :src='this.api + popMessageImg[2]'></li>
                     </ul>
                 </div>
                 <div class='skin-big' @mouseenter="mouSeenTer" @mousemove="mouseMove" @mouseleave="mouseLeave">
@@ -26,49 +26,7 @@
                     </ul>
                     <span class='margin-l-10'>共有00条评价</span>
                 </div>
-                <!-- 选择颜色 -->
-                <p class='font-14'>选择颜色</p>
-                <div class='skin-change-color clearfix'>
-                    <span class='skin-change-pre fl' @click="chooseColorPre"><i class='el-icon-arrow-left'></i></span>
-                    <div class='skin-change-color-box'>
-                        <ul>
-                            <li class='checked'>
-                                <span></span>
-                            </li>
-                            <li >
-                                <span></span>
-                            </li>
-                            <li >
-                                <span></span>
-                            </li>
-                            <li >
-                                <span></span>
-                            </li>
-                            <li >
-                                <span></span>
-                            </li>
-                            <li >
-                                <span></span>
-                            </li>
-                            <li >
-                                <span></span>
-                            </li>
-                            <li >
-                                <span></span>
-                            </li>
-                            <li >
-                                <span></span>
-                            </li>
-                            <li >
-                                <span></span>
-                            </li>
-                            <li >
-                                <span></span>
-                            </li>
-                        </ul>
-                    </div>
-                    <span class='skin-change-next fr' @click="chooseColorNext"><i class='el-icon-arrow-right'></i></span>
-                </div>
+                <p class="font-18">规格：<span class="font-24">{{this.golits.g_spec}}</span> ml</p>
                 <!-- 选择颜色或者数量 -->
                 <div class='skin-choose-colorNumber clearfix'>
                     <div class='skin-choose-color-select'>
@@ -154,7 +112,9 @@ export default {
             golits: '',
             selectId: '',
             selectValue: 1,
-            urlId: ''
+            urlId: '',
+            api: 'http://192.168.97.254:3000/',
+            popMessageImg: []
         }
     },
     methods: {
@@ -277,6 +237,7 @@ export default {
     mounted () {
         this.tabSmallToBig()
         this.getGoodsCont()
+        this.popMessageImg = this.golits.g_img.split(',')
     },
     watch: {
         // 监听地址栏的变化

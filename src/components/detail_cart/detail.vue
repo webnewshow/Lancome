@@ -676,7 +676,7 @@ export default {
     },
     methods: {
         changeddIcon () {
-            console.log(111)
+            // console.log(111)
         },
         initSwiper1 () {
             let Swip = new Swiper('.swiperDetail1', {
@@ -739,21 +739,22 @@ export default {
             let searchParams = new URLSearchParams(search)
             let searchId = searchParams.get('id')
             this.deId = searchId || this.urlId
-            console.log(this.deId)
+            // console.log(this.deId)
             this.$store.dispatch('getgoodsfordetail')
             let dgoodslist = this.$store.state.getDetail.gooddelist
             if (dgoodslist != '') {
                 for (let xq of dgoodslist) {
                     if (xq.g_id == this.deId) {
                         this.degoodslists = xq
-                    } else {
-                        let list = JSON.parse(window.localStorage.getItem('selectInfo'))
-                        for (let sq of list) {
-                            if (sq.g_id == this.deId) {
-                                this.degoodslists = sq
-                            }
-                        }
                     }
+                    // else {
+                    //     let list = JSON.parse(window.localStorage.getItem('selectInfo'))
+                    //     for (let sq of list) {
+                    //         if (sq.g_id == this.deId) {
+                    //             this.degoodslists = sq
+                    //         }
+                    //     }
+                    // }
                 }
             } else {
                 let list = JSON.parse(window.localStorage.getItem('selectInfo'))
@@ -763,14 +764,12 @@ export default {
                     }
                 }
             }
-            return this.degoodslists
         },
         // 猜你喜欢商品
         getlikegoods () {
             this.$store.dispatch('getgoodsfordetail')
             let likegoods = this.$store.state.getDetail.gooddelist
             this.likegoods = likegoods
-            return this.likegoods
         },
         // 获取四个元素距离顶部的距离事件
         getDomHeight () {
@@ -852,7 +851,7 @@ export default {
         this.initSwiper2()
         // 获取id对应的数据
         this.getdegoods()
-        console.log(this.degoodslists)
+        // console.log(this.degoodslists)
         // 猜你喜欢商品
         this.getlikegoods()
         // 屏幕滚动事件

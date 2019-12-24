@@ -312,7 +312,7 @@
                             <span class="fr">总计</span>
                         </div>
                         <div class="skin-navmincart-Ctosubbtn">
-                            <a class="skin-bto-hover">立即结算</a>
+                            <router-link to='/shopCart' class="skin-bto-hover">立即结算</router-link>
                         </div>
                     </div>
                 </li>
@@ -322,9 +322,7 @@
                         class='help user' @click="login"
                         >
                         <i class='el-icon-s-custom font-24'></i>
-                        <span>欢迎:{{this.userName}}
-                        <!-- <span>欢迎:dafdfda -->
-                        </span>
+                        <span>欢迎: {{this.users.email}}</span>
                         </div></div>
                     <div class="skin-nav-con"  id="GuanWang">
                         <div  class="login-box"> <login a="1234" :toshow="toshow"></login></div>
@@ -348,7 +346,7 @@
                                 </li>
                             </ul>
                             <div class="loginout">
-                                <span>退出登录</span>
+                                <span @click="loginout">退出登录</span>
                             </div>
                         </div>
                     </div>
@@ -362,7 +360,7 @@
                         <el-collapse-item title="产品类型" name="1">
                             <el-collapse  accordion>
                                 <ul>
-                                    <li>卸妆&洁面</li>
+                                    <li><router-link to='/SkinCare'>卸妆&洁面</router-link></li>
                                     <li>美容液</li>
                                     <li>精华</li>
                                     <li>眼部护理</li>
@@ -516,7 +514,8 @@ export default {
             shopgoods: '',
             godelits: '',
             userName: '',
-            userdata: ''
+            userdata: '',
+            users: ''
         }
     },
     components: {
@@ -547,9 +546,17 @@ export default {
                 this.$router.push('/user')
             } else {
                 this.dialogVisible = true
+                console.log(this.dialogVisible)
             }
         },
         // 退出登录
+        loginout () {
+            let token = window.localStorage.getItem('token')
+            if (token) {
+                window.localStorage.removeItem('token')
+                this.$router.go(0)
+            }
+        },
         // 显示用户头像或者名字
         showUser () {
             let userImg = document.querySelector('.user i')
@@ -558,8 +565,9 @@ export default {
             let userName = document.querySelector('.user span')
             let token = window.localStorage.getItem('token')
             if (token) {
-                let name = window.localStorage.getItem('info')
+                let name = window.localStorage.getItem('userinfo')
                 this.userName = name = JSON.parse(name).email
+                console.log(this.userName)
                 userImg.style.display = 'none'
                 userInfo.style.display = 'block'
                 loginBox.style.display = 'none'
@@ -603,6 +611,7 @@ export default {
                 serchData.push(seartText)
                 if (seartText === '') {
                     seartText = '菁纯臻宠'
+                    _this.$router.push('/search')
                 } else {
                     console.log(seartText)
                     _this.$store.commit('getservalue', seartText)
@@ -625,6 +634,14 @@ export default {
         },
         handleChange (val) {
             console.log(val)
+        },
+        getusers () {
+            let token = window.localStorage.getItem('token')
+            if (token) {
+                let users = JSON.parse(window.localStorage.getItem('userinfo'))
+                console.log(users)
+                this.users = users
+            }
         }
     },
     mounted () {
@@ -633,6 +650,8 @@ export default {
         window.addEventListener('scroll', this.getscrool)
         this.shopcartgoods()
         this.getType()
+        this.getusers()
+        console.log(this.users.email)
     },
     computed: {
         pritotal () {

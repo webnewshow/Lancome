@@ -13,7 +13,7 @@
                         class="skin-personal-list"
                         >
                             <li class="skin-personal-item">
-                                <h4 class="user">用户名</h4>
+                                <h4 class="user">用户名:{{this.userName}}</h4>
                                 <span class="name"></span>
                             </li>
                               <li class="skin-personal-item">
@@ -225,12 +225,12 @@ export default {
         getInfo () {
             let token = window.localStorage.getItem('token')
             if (token) {
-                let info = window.localStorage.getItem('info')
+                let info = window.localStorage.getItem('userinfo')
                 this.userName = JSON.parse(info).email
             }
         },
         getUserInfo () {
-            this.$store.dispatch('getUserData')
+            // this.$store.dispatch('getUserData')
             let userInfo = this.$store.state.userData.userdatalist
             if (userInfo != '') {
                 this.userInfo = userInfo

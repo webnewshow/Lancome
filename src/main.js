@@ -16,6 +16,20 @@ Vue.config.productionTip = false
 Vue.prototype.$md5 = md5
 Vue.use(ElementUI)
 /* eslint-disable no-new */
+// router.beforeEach((to, from, next) => {
+//     console.log(to)
+//     let token = window.localStorage.getItem('token')
+//     if (to.path === '/user/account' || to.path === '/user/order' || to.path === '/user/personal' ||
+//     to.path === '/user/address' || to.path === '/user/Collection') {
+//         console.log(token)
+//         next('/')
+//     } else {
+//         console.log(898)
+//         // next('/')
+//         next()
+//     }
+// })
+
 new Vue({
     el: '#app',
     router,

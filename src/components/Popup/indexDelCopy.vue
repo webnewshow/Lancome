@@ -6,9 +6,9 @@
                 <!-- 缩略图 -->
                 <div class='skin-small fl'>
                     <ul>
-                        <li class='checked'><img src='./images/15741550653701721_920X920.jpg'></li>
-                        <li><img src='./images/1576162546662304_920X920.jpg'></li>
-                        <li><img src='./images/15767599638116550_920X920.jpg'></li>
+                        <li class='checked'><img :src='this.api + popMessageImg[0]'></li>
+                        <li ><img :src='this.api + popMessageImg[1]'></li>
+                        <li ><img :src='this.api + popMessageImg[2]'></li>
                     </ul>
                 </div>
                 <div class='fr skin-big' @mouseenter="mouSeenTer" @mousemove="mouseMove" @mouseleave="mouseLeave">
@@ -27,49 +27,7 @@
                     </ul>
                     <span class='margin-l-10'>共有{{this.popMessage.g_count}}条评价</span>
                 </div>
-                <!-- 选择颜色 -->
-                <p class='font-14'>选择颜色</p>
-                <div class='skin-change-color clearfix'>
-                    <span class='skin-change-pre fl' @click="chooseColorPre"><i class='el-icon-arrow-left'></i></span>
-                    <div class='skin-change-color-box'>
-                        <ul>
-                        <li class='checked'>
-                            <span></span>
-                        </li>
-                        <li >
-                            <span></span>
-                        </li>
-                        <li >
-                            <span></span>
-                        </li>
-                        <li >
-                            <span></span>
-                        </li>
-                        <li >
-                            <span></span>
-                        </li>
-                        <li >
-                            <span></span>
-                        </li>
-                        <li >
-                            <span></span>
-                        </li>
-                        <li >
-                            <span></span>
-                        </li>
-                        <li >
-                            <span></span>
-                        </li>
-                        <li >
-                            <span></span>
-                        </li>
-                        <li >
-                            <span></span>
-                        </li>
-                    </ul>
-                    </div>
-                    <span class='skin-change-next fr' @click="chooseColorNext"><i class='el-icon-arrow-right'></i></span>
-                </div>
+                <p class="font-18">规格：<span class="font-24">{{this.popMessage.g_spec}}</span> ml</p>
                 <!-- 选择颜色或者数量 -->
                 <div class='skin-choose-colorNumber clearfix'>
                     <div class='skin-choose-color-select'>
@@ -83,7 +41,7 @@
                         </el-select>
                     </div>
                     <div class='skin-choose-number-select fr'>
-                        <el-select v-model="number" placeholder="请选择">
+                        <el-select v-model="number" placeholder="请选择" @change="selectgetvalue">
                             <el-option
                             v-for="item in numberOptions"
                             :key="item.value"
@@ -96,8 +54,8 @@
                 <!-- 价格 -->
                 <div class="skin-choose-priceBuy clearfix">
                     <div class='skin-price'>￥<span>{{this.popMessage.g_price}}</span></div>
-                    <div class='skin-goBuy fr'><span class='skin-bto'>立即购买</span></div>
-                    <div class='skin-buyCar margin-r-10 fr'><span class='skin-bto'>加入购物袋</span></div>
+                    <div class='skin-goBuy fr'><router-link class='skin-bto-hover' to="/Settlement" @click="shutDownPop">立即购买</router-link></div>
+                    <div class='skin-buyCar margin-r-10 fr'><span class='skin-bto-hover' @click="addToShop">加入购物袋</span></div>
                 </div>
                 <div>
                     <p class='font-14 margin-tb-20'>商品简介</p>
@@ -136,23 +94,28 @@ export default {
             }],
             color: '#162 元气胡萝卜',
             numberOptions: [{
-                value: '选项1',
+                value: '1',
                 label: '1'
             }, {
-                value: '选项2',
+                value: '2',
                 label: '2'
             }, {
-                value: '选项3',
+                value: '3',
                 label: '3'
             }, {
-                value: '选项4',
+                value: '4',
                 label: '4'
             }, {
-                value: '选项5',
+                value: '5',
                 label: '5'
             }],
             number: '1',
-            imgLi: []
+            golits: '',
+            selectId: '',
+            selectValue: 1,
+            urlId: '',
+            imgLi: '',
+            api: 'http://192.168.97.254:3000/'
         }
     },
     methods: {
@@ -237,16 +200,58 @@ export default {
             let PopWindow = document.querySelector('.skin-max')
             PopWindow.classList.remove('on')
             document.body.style.overflow = 'visible'
+        },
+        // 根据地址栏传入的id获取对应数据并渲染
+        getGoodsCont () {
+            var search = window.location.search
+            let searchParams = new URLSearchParams(search)
+            let searchId = searchParams.get('id')
+            // 判断传入id的值
+            this.gid = searchId || this.urlId
+            this.$store.dispatch('getgoodsfordetail')
+            let lists = this.$store.state.getDetail.gooddelist
+            if (lists != '') {
+                for (let item of lists) {
+                    // 判断是否符合传入id的数据，符合则返回该数据
+                    if (item.g_id == this.gid) {
+                        window.localStorage.removeItem('info')
+                        window.localStorage.setItem('info', JSON.stringify(item))
+                        this.golits = item
+                    }
+                }
+            } else {
+                this.golits = JSON.parse(window.localStorage.getItem('info'))
+            }
+            return this.golits
+        },
+        // 点击加入购物袋
+        addToShop () {
+            // 把获得的数量赋值
+            this.golits.g_num = this.selectValue || 1
+            this.$store.commit('addselectlist', this.golits)
+        },
+        // 获取选择的数量value
+        selectgetvalue (value) {
+            this.selectValue = value
+        }
+    },
+    watch: {
+        // 监听地址栏的变化
+        $route (to, from) {
+            this.urlId = to.query.id
+            this.getGoodsCont()
         }
     },
     mounted () {
         this.tabSmallToBig()
-        this.imgLi = this.$store.state.popup.openWinMessage.g_img
-        // console.log(this.imgLi)
+        this.getGoodsCont()
     },
     computed: {
         popMessage () {
             return this.$store.state.popup.openWinMessage
+        },
+        popMessageImg () {
+            return this.$store.state.popup.openWinMessage.g_img.split(',')
         }
     }
 }
@@ -469,14 +474,14 @@ export default {
             .skin-buyCar{
                 display: inline-block;
                 font-size: 14px;
-                .skin-bto {
+                .skin-bto-hover {
                     padding: 15px 70px;
                 }
             }
             .skin-goBuy{
                 display: inline-block;
                 font-size: 14px;
-                .skin-bto {
+                .skin-bto-hover {
                     padding: 15px 70px;
                 }
             }

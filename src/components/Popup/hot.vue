@@ -7,69 +7,69 @@
         <div class='pc-img-02 pr'>
             <img src='./images/pc_img_02 (2).jpg'>
             <img class='pc-xhp pc02' src='./images/pc_xhp.png'>
-            <router-link class='buy02' to=''></router-link>
+            <router-link class='buy02' to='/'></router-link>
         </div>
     </div>
     <div class='img-03'>
         <div class='pc-img-03 pr'>
             <img src='./images/pc_img_03 (2).jpg'>
-            <router-link class='buy03' to=''></router-link>
+            <router-link class='buy03' to='/'></router-link>
         </div>
     </div>
     <div class='img-04'>
         <div class='pc-img-04 pr'>
             <img src='./images/pc_img_04 (2).jpg'>
             <img class='pc_dyjh pc04' src='./images/pc_dyjh.png'>
-            <router-link class='buy04' to=''></router-link>
+            <router-link class='buy04' to='/'></router-link>
         </div>
     </div>
     <div class='img-05'>
         <div class='pc-img-05 pr'>
             <img src='./images/pc_img_05.jpg'>
             <img class='pc_fgys pc05' src='./images/pc_fgys.png'>
-            <router-link class='buy05' to=''></router-link>
+            <router-link class='buy05' to='/'></router-link>
         </div>
     </div>
     <div class='img-06'>
         <div class='pc-img-06 pr'>
             <img src='./images/pc_img_06.jpg'>
             <img class='pc_jcys pc06' src='./images/pc_jcys.png'>
-            <router-link class='buy06' to=''></router-link>
+            <router-link class='buy06' to='/'></router-link>
         </div>
     </div>
     <div class='img-07'>
         <div class='pc-img-07 pr'>
             <img src='./images/pc_img_07.jpg'>
             <img class='pc_jcms pc07' src='./images/pc_jcms.png'>
-            <router-link class='buy07' to=''></router-link>
+            <router-link class='buy07' to='/'></router-link>
         </div>
     </div>
     <div class='img-08'>
         <div class='pc-img-08 pr'>
             <img src='./images/pc_img_08.jpg'>
             <img class='pc_tiu pc08' src='./images/pc_tiu.png'>
-            <router-link class='buy08' to=''></router-link>
+            <router-link class='buy08' to='/'></router-link>
         </div>
     </div>
     <div class='img-09'>
         <div class='pc-img-09 pr'>
             <img src='./images/pc_img_09.jpg'>
             <img class='pc_jcqd pc09' src='./images/pc_jcqd.png'>
-            <router-link class='buy09' to=''></router-link>
+            <router-link class='buy09' to='/'></router-link>
         </div>
     </div>
     <div class='img-10'>
         <div class='pc-img-10 pr'>
             <img src='./images/pc_img_10.jpg'>
             <img class='pc_196 pc10' src='./images/pc_196.png'>
-            <router-link class='buy10' to=''></router-link>
+            <router-link class='buy10' to='/'></router-link>
         </div>
     </div>
     <div class='img-11'>
         <div class='pc-img-11 pr'>
             <img src='./images/pc_img_11.jpg'>
             <img class='pc_bs pc11' src='./images/pc_bs.png'>
-            <router-link class='buy11' to=''></router-link>
+            <router-link class='buy11' to='/'></router-link>
         </div>
     </div>
 </div>
@@ -234,7 +234,6 @@ export default {
             top: 67%;
             left: 60%;
             z-index: 2;
-            background-color: yellow;
         }
     }
 }
@@ -255,7 +254,6 @@ export default {
             top: 67%;
             left: 21%;
             z-index: 2;
-            background-color: yellow;
         }
     }
 }
@@ -284,7 +282,6 @@ export default {
             top: 60%;
             left: 60%;
             z-index: 2;
-            background-color: yellow;
         }
     }
 }
@@ -312,7 +309,6 @@ export default {
             top: 62%;
             left: 23%;
             z-index: 2;
-            background-color: yellow;
         }
     }
 }
@@ -340,7 +336,6 @@ export default {
             top: 66%;
             left: 63%;
             z-index: 2;
-            background-color: yellow;
         }
     }
 }
@@ -368,7 +363,6 @@ export default {
             top: 69%;
             left: 20%;
             z-index: 2;
-            background-color: yellow;
         }
     }
 }
@@ -396,7 +390,6 @@ export default {
             top: 61%;
             left: 61%;
             z-index: 2;
-            background-color: yellow;
         }
     }
 }
@@ -424,7 +417,6 @@ export default {
             top: 69%;
             left: 20%;
             z-index: 2;
-            background-color: yellow;
         }
     }
 }
@@ -452,7 +444,6 @@ export default {
             top: 65%;
             left: 65%;
             z-index: 2;
-            background-color: yellow;
         }
     }
 }
@@ -480,7 +471,6 @@ export default {
             top: 63%;
             left: 23%;
             z-index: 2;
-            background-color: yellow;
         }
     }
 }

@@ -28,7 +28,7 @@
                             我的订单
                         </li>
                         <li class="skin-item item-name">
-                            <a href="#">查看我的历史订单</a>
+                            <a href="/user/order">查看我的历史订单</a>
                         </li>
                         <li class="skin-item item-li">
                             寻找新的魅力产品？
@@ -100,7 +100,7 @@ export default{
         getInfo () {
             let token = window.localStorage.getItem('token')
             if (token) {
-                let info = window.localStorage.getItem('info')
+                let info = window.localStorage.getItem('userinfo')
                 this.userName = JSON.parse(info).email
             }
         }

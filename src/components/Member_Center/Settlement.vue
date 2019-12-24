@@ -317,7 +317,7 @@
                         </li>
                     </ul>
                     <div class="skin-totalprice-btn">
-                        <a href="/user" class="skin-btn-choose">立即结算</a>
+                        <a href="/user/order" class="skin-btn-choose">立即结算</a>
                     </div>
                 </div>
             </div>
@@ -327,7 +327,7 @@
                     <router-link
                     class="skin-summary-btn pointer"
                     style="display: block;"
-                    to="/user"
+                    to="/user/order"
                     >立即结算</router-link>
                     <ul class="skin-summary-right">
                         <li class="clearfix">

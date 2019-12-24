@@ -41,7 +41,10 @@
                     <div class="skin-shopC-cont clearfix">
                         <div class="fl skin-shopC-left">
                             <div class="skin-shopC-listTit">
-                                <el-checkbox v-model="checkAll">全选</el-checkbox>
+                                <el-checkbox
+                                v-model="checkAll"
+                                @change="chooseAll"
+                                >全选</el-checkbox>
                                 <div class="skin-shopC-lrlist clearfix">
                                     <div class="fl skin-shopC-gName">商品信息</div>
                                     <div class="fl skin-shopC-gPri">单价</div>
@@ -56,12 +59,14 @@
                                     v-for="item in this.goodslist"
                                     :key="item.g_id"
                                     >
-                                        <el-checkbox v-model="checked"></el-checkbox>
+                                        <el-checkbox
+                                        v-model="checked"
+                                        ></el-checkbox>
                                         <div class="skin-shopcart-rightlist clearfix">
                                             <!-- 名称 -->
                                             <div class="skin-sc-goods fl">
                                                 <div class="skin-sc-listimg">
-                                                    <img src="./images/1.jpg" alt="">
+                                                    <img :src="'http://192.168.97.254:3000/'+item.g_img.split(',')[0]" alt="">
                                                 </div>
                                                 <div class="skin-sc-listdetail">
                                                     <p class="skin-sc-listname">{{item.g_title}}</p>
@@ -101,7 +106,7 @@
                                                         </a>
                                                     </li>
                                                     <li class="fl">
-                                                        <a>删除</a>
+                                                        <a @click="deldata(item.g_id)">删除</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -167,7 +172,7 @@
                                     <div class="skin-sc-useCont clearfix">
                                         <span class="skin-sc-useTit">订单总价</span>
                                         <div class="skin-sc-oderpri fr">
-                                            <p>商品价格<span class="fr">￥{{this.goodslist[0].g_price}}</span></p>
+                                            <p>商品价格<span class="fr">￥{{this.pritotal}}</span></p>
                                             <p>优惠金额<span class="fr">￥0</span></p>
                                             <p>运费<span class="fr">免运费</span></p>
                                         </div>
@@ -300,6 +305,30 @@ export default {
                 pullCart.style.display = 'none'
                 simpleCart.style.display = 'block'
             }
+        },
+        deldata (id) {
+            console.log(id)
+            this.$store.commit('deldata', id)
+            this.getselectgoods()
+        },
+        chooseAll (val) {
+            console.log(val)
+            if (!val) {
+                this.checked = false
+            } else {
+                this.checked = true
+            }
+        },
+        chooseOne () {
+            let selcetlist = document.querySelectorAll('.skin-shopcart-list .el-checkbox__input')
+            console.log(selcetlist)
+            for (let i = 0; i < selcetlist.length; i++) {
+                console.log(selcetlist[i])
+                selcetlist[i].onclick = () => {
+                    console.log(111)
+                    selcetlist[i].classList.add('is-checked')
+                }
+            }
         }
     },
     mounted () {
@@ -308,6 +337,15 @@ export default {
         // this.toChangeBottom()
         // this.getBottomWidth()
         // this.orSimple()
+        let selcetlist = document.querySelectorAll('.skin-shopcart-list .el-checkbox__input')
+        console.log(selcetlist)
+        for (let i = 0; i < selcetlist.length; i++) {
+            console.log(selcetlist[i])
+            selcetlist[i].onclick = () => {
+                console.log(111)
+                selcetlist[i].classList.add('is-checked')
+            }
+        }
     },
     computed: {
         pritotal () {

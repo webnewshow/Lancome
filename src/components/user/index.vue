@@ -27,7 +27,7 @@
                                             <!-- <span class="skin-name">{{this.userdata[0].u_name}}</span> -->
                                             <span class="skin-name">{{this.userName}}</span>
                                         </p>
-                                        <a href="#">退出登录</a>
+                                        <a href="#" @click="loginout">退出登录</a>
                                     </li>
                                     <li class="skin-fw">
                                         <img :src='fw' alt="">
@@ -188,13 +188,20 @@ export default {
         smalleIndex
     },
     methods: {
+        loginout () {
+            let token = window.localStorage.getItem('token')
+            if (token) {
+                window.localStorage.removeItem('token')
+                this.$router.go(0)
+            }
+        },
         changeOption (option) {
             this.isassembly = option
         },
         getInfo () {
             let token = window.localStorage.getItem('token')
             if (token) {
-                let info = window.localStorage.getItem('info')
+                let info = window.localStorage.getItem('userinfo')
                 this.userName = JSON.parse(info).email
             }
         },

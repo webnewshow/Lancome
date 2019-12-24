@@ -9,7 +9,7 @@
             <li><a><router-link to="/">首页</router-link></a></li>
              <li><a><router-link to="/SkinCare">护肤</router-link></a></li>
               <li><a>产品类型</a></li>
-              <li  class="skin-x-y" v-show="$store.state.goods.clinckdat != ''"><a>{{$store.state.goods.clinckdata}}</a></li>
+              <!-- <li  class="skin-x-y" v-show="$store.state.goods.clinckdat != ''"><a>{{$store.state.goods.clinckdata}}</a></li> -->
               <li v-show="np != ''"><a>{{np}}</a></li>
           </ul>
              </div>
